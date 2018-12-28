@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: cn.com.wz:axis:discovery:1.0">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/cn/com/wz/axis/1.0/axis-1.0-discovery.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/cn/com/wz/axis/1.0/axis-1.0-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/cn/com/wz/axis/1.0/axis-1.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

@@ -1,0 +1,321 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>cn.com.wz</groupId>
+        <artifactId>basePlatform</artifactId>
+        <version>2.0-SNAPSHOT</version>
+    </parent>
+
+    <groupId>cn.com.wz</groupId>
+    <artifactId>VehCert</artifactId>
+    <packaging>grails-app</packaging>
+    <version>1.0-SNAPSHOT</version>
+
+
+
+    <name>VehCert</name>
+    <description>A custom grails project</description>
+    <url>http://www.myorganization.org</url>
+
+    <properties>
+        <grails.version>2.2.1</grails.version>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>cn.com.wz</groupId>
+            <artifactId>basePlatform</artifactId>
+            <version>2.0-SNAPSHOT</version>
+            <type>war</type>
+        </dependency>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>5.1.10</version>
+            <type>jar</type>
+        </dependency>
+        <!--<dependency>-->
+            <!--<groupId>cn.com.wz</groupId>-->
+            <!--<artifactId>mssqlserver</artifactId>-->
+            <!--<version>2000</version>-->
+            <!--<type>jar</type>-->
+        <!--</dependency>-->
+        <dependency>
+            <groupId>cn.com.wz</groupId>
+            <artifactId>itext</artifactId>
+            <version>5.0.6</version>
+            <type>jar</type>
+        </dependency>
+        <dependency>
+            <groupId>cn.com.wz</groupId>
+            <artifactId>itext</artifactId>
+            <version>5.0.6</version>
+            <classifier>asian</classifier>
+            <type>jar</type>
+        </dependency>
+        <dependency>
+            <groupId>org.grails.plugins</groupId>
+            <artifactId>quartz</artifactId>
+            <version>1.0-RC9</version>
+            <type>zip</type>
+            <scope>runtime</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>cn.com.wz</groupId>
+            <artifactId>axis</artifactId>
+            <version>1.0</version>
+            <type>jar</type>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>cn.com.wz</groupId>
+            <artifactId>axis</artifactId>
+            <version>1.0</version>
+            <type>jar</type>
+            <classifier>activation</classifier>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>cn.com.wz</groupId>
+            <artifactId>axis</artifactId>
+            <version>1.0</version>
+            <type>jar</type>
+            <classifier>ant</classifier>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>cn.com.wz</groupId>
+            <artifactId>axis</artifactId>
+            <version>1.0</version>
+            <type>jar</type>
+            <classifier>jacob</classifier>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>cn.com.wz</groupId>
+            <artifactId>axis</artifactId>
+            <version>1.0</version>
+            <type>jar</type>
+            <classifier>jaxrpc</classifier>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>cn.com.wz</groupId>
+            <artifactId>axis</artifactId>
+            <version>1.0</version>
+            <type>jar</type>
+            <classifier>saaj</classifier>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>cn.com.wz</groupId>
+            <artifactId>axis</artifactId>
+            <version>1.0</version>
+            <type>jar</type>
+            <classifier>schema</classifier>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>cn.com.wz</groupId>
+            <artifactId>axis</artifactId>
+            <version>1.0</version>
+            <type>jar</type>
+            <classifier>wsdl</classifier>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>cn.com.wz</groupId>
+            <artifactId>axis</artifactId>
+            <version>1.0</version>
+            <type>jar</type>
+            <classifier>xmlsec</classifier>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>cn.com.wz</groupId>
+            <artifactId>axis</artifactId>
+            <version>1.0</version>
+            <type>jar</type>
+            <classifier>discovery</classifier>
+            <scope>compile</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.ant</groupId>
+            <artifactId>ant</artifactId>
+            <version>1.8.2</version>
+            <type>jar</type>
+            <scope>compile</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>cn.com.wz</groupId>
+            <artifactId>jco</artifactId>
+            <version>3.0</version>
+            <type>jar</type>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/sapjco3.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>com.google.zxing</groupId>
+            <artifactId>core</artifactId>
+            <version>3.1.0</version>
+            <type>jar</type>
+        </dependency>
+        <dependency>
+            <groupId>com.google.zxing</groupId>
+            <artifactId>javase</artifactId>
+            <version>3.1.0</version>
+            <type>jar</type>
+        </dependency>
+        <!--添加xfire-->
+        <dependency>
+            <groupId>org.grails.plugins</groupId>
+            <artifactId>xfire</artifactId>
+            <version>0.8.3</version>
+            <type>zip</type>
+        </dependency>
+
+    </dependencies>
+
+    <build>
+        <pluginManagement />
+
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>2.3</version>
+                <configuration>
+                    <webResources>
+                        <!--###########################静态资源 css js images###########################-->
+                        <resource>
+                            <directory>${project.basedir}\parent\cn.com.wz\basePlatform\basePlatform-2.0-SNAPSHOT\web-app\css\</directory>
+                            <filtering>true</filtering>
+                            <targetPath>../../web-app/css/parent</targetPath>
+                        </resource>
+                        <resource>
+                            <directory>${project.basedir}\parent\cn.com.wz\basePlatform\basePlatform-2.0-SNAPSHOT\web-app\js\</directory>
+                            <filtering>true</filtering>
+                            <targetPath>../../web-app/js/parent</targetPath>
+                        </resource>
+                        <resource>
+                            <directory>${project.basedir}\parent\cn.com.wz\basePlatform\basePlatform-2.0-SNAPSHOT\web-app\images\</directory>
+                            <filtering>true</filtering>
+                            <targetPath>../../web-app/images/parent</targetPath>
+                        </resource>
+                        <resource>
+                            <directory>${project.basedir}\parent\cn.com.wz\basePlatform\basePlatform-2.0-SNAPSHOT\web-app\data\</directory>
+                            <filtering>true</filtering>
+                            <targetPath>../../web-app/data/parent</targetPath>
+                        </resource>
+                        <!--###########################静态资源 css js images  END###########################-->
+
+                        <!--###########################视图资源###########################-->
+                        <resource>
+                            <directory>${project.basedir}\parent\cn.com.wz\basePlatform\basePlatform-2.0-SNAPSHOT\grails-app\views\cn\com\wz\parent</directory>
+                            <filtering>true</filtering>
+                            <targetPath>../../grails-app/views/cn/com/wz/parent</targetPath>
+                        </resource>
+                        <resource>
+                            <directory>${project.basedir}\parent\cn.com.wz\basePlatform\basePlatform-2.0-SNAPSHOT\grails-app\views\layouts</directory>
+                            <filtering>true</filtering>
+                            <targetPath>../../grails-app/views/layouts/</targetPath>
+                        </resource>
+
+                        <!--###########################视图资源END###########################-->
+
+                        <!--###########################i18n资源###########################-->
+                        <resource>
+                            <directory>${project.basedir}\parent\cn.com.wz\basePlatform\basePlatform-2.0-SNAPSHOT\grails-app\i18n</directory>
+                            <filtering>true</filtering>
+                            <targetPath>../../grails-app/i18n/cn/com/wz/parent</targetPath>
+                        </resource>
+                        <!--###########################i18n资源END###########################-->
+
+                        <!--###########################MVC资源 controller、domain、service###########################-->
+                        <resource>
+                            <directory>${project.basedir}\parent\cn.com.wz\basePlatform\basePlatform-2.0-SNAPSHOT\grails-app\controllers</directory>
+                            <filtering>true</filtering>
+                            <targetPath>../../grails-app/controllers/cn/com/wz/parent</targetPath>
+                        </resource>
+                        <resource>
+                            <directory>${project.basedir}\parent\cn.com.wz\basePlatform\basePlatform-2.0-SNAPSHOT\grails-app\domain</directory>
+                            <filtering>true</filtering>
+                            <targetPath>../../grails-app/domain/cn/com/wz/parent</targetPath>
+                        </resource>
+                        <resource>
+                            <directory>${project.basedir}\parent\cn.com.wz\basePlatform\basePlatform-2.0-SNAPSHOT\grails-app\services</directory>
+                            <filtering>true</filtering>
+                            <targetPath>../../grails-app/services/cn/com/wz/parent</targetPath>
+                        </resource>
+                        <!--###########################MVC资源controller、domain、service END###########################-->
+
+                        <!--###########################通用资源 taglib utils groovy java templates###########################-->
+                        <resource>
+                            <directory>${project.basedir}\parent\cn.com.wz\basePlatform\basePlatform-2.0-SNAPSHOT\grails-app\taglib</directory>
+                            <filtering>true</filtering>
+                            <targetPath>../../grails-app/taglib/cn/com/wz/parent</targetPath>
+                        </resource>
+                        <resource>
+                            <directory>${project.basedir}\parent\cn.com.wz\basePlatform\basePlatform-2.0-SNAPSHOT\grails-app\utils</directory>
+                            <filtering>true</filtering>
+                            <targetPath>../../grails-app/utils/cn/com/wz/parent</targetPath>
+                        </resource>
+
+                        <resource>
+                            <directory>${project.basedir}\parent\cn.com.wz\basePlatform\basePlatform-2.0-SNAPSHOT\src\groovy</directory>
+                            <filtering>true</filtering>
+                            <targetPath>../../src/groovy/cn/com/wz/parent</targetPath>
+                        </resource>
+                        <resource>
+                            <directory>${project.basedir}\parent\cn.com.wz\basePlatform\basePlatform-2.0-SNAPSHOT\src\java</directory>
+                            <filtering>true</filtering>
+                            <targetPath>../../src/java/parent</targetPath>
+                        </resource>
+                        <resource>
+                            <directory>${project.basedir}\parent\cn.com.wz\basePlatform\basePlatform-2.0-SNAPSHOT\src\templates</directory>
+                            <filtering>true</filtering>
+                            <targetPath>../../src/templates</targetPath>
+                        </resource>
+
+                        <!--###########################通用资源 taglib utils groovy java templates END###########################-->
+
+                        <!--###########################配置资源 ###########################-->
+                        <!--<resource>-->
+                            <!--<directory>${project.basedir}\parent\cn.com.wz\basePlatform\basePlatform-2.0-SNAPSHOT\grails-app\conf</directory>-->
+                            <!--<filtering>true</filtering>-->
+                            <!--<targetPath>../../grails-app/conf/</targetPath>-->
+
+                        <!--</resource>-->
+                        <!--###########################配置资源 END###########################-->
+                    </webResources>
+
+                    <workDirectory>${project.basedir}/parent</workDirectory>
+                    <overlays>
+                    <overlay>
+                    <!--和上面个添加的war包中的groupId和artifactId一样-->
+                    <groupId>cn.com.wz</groupId>
+                    <artifactId>basePlatform</artifactId>
+                    <!--去除掉不需要parent的信息覆盖children的信息-->
+                    <excludes>
+                    <exclude>META-INF/*</exclude>
+                    </excludes>
+                    </overlay>
+                    <overlay>
+
+                    </overlay>
+                    </overlays>
+                </configuration>
+            </plugin>
+
+        </plugins>
+    </build>
+
+</project>

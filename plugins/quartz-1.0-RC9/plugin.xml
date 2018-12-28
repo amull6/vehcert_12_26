@@ -1,0 +1,30 @@
+<plugin name='quartz' version='1.0-RC9' grailsVersion='1.2 &gt; *'>
+  <author>Sergey Nebolsin, Graeme Rocher, Ryan Vanderwerf</author>
+  <authorEmail>rvanderwerf@gmail.com</authorEmail>
+  <title>Quartz plugin for Grails</title>
+  <description>This plugin adds Quartz job scheduling features to Grails application.
+</description>
+  <documentation>http://grails.org/plugin/quartz</documentation>
+  <type>QuartzGrailsPlugin</type>
+  <resources>
+    <resource>DefaultQuartzConfig</resource>
+    <resource>QuartzBootStrap</resource>
+    <resource>grails.plugins.quartz.JobManagerService</resource>
+  </resources>
+  <repositories>
+    <repository name='grailsCentral' url='http://grails.org/plugins' />
+    <repository name='mavenCentral' url='http://repo1.maven.org/maven2/' />
+  </repositories>
+  <dependencies>
+    <compile>
+      <dependency group='org.quartz-scheduler' name='quartz' version='2.1.5' />
+      <dependency group='org.hibernate' name='hibernate-core' version='3.6.10.Final' />
+    </compile>
+    <runtime>
+      <dependency group='hsqldb' name='hsqldb' version='1.8.0.10' />
+    </runtime>
+  </dependencies>
+  <plugins />
+  <runtimePluginRequirements />
+  <behavior />
+</plugin>

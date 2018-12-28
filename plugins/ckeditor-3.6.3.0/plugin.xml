@@ -1,0 +1,30 @@
+<plugin name='ckeditor' version='3.6.3.0' grailsVersion='1.3 &gt; *'>
+  <author>Stefano Gualdi</author>
+  <authorEmail>stefano.gualdi@gmail.com</authorEmail>
+  <title>CKeditor plugin</title>
+  <description>CKeditor web WYSIWYG editor integration plugin.
+</description>
+  <documentation>http://stefanogualdi.github.com/grails-ckeditor/</documentation>
+  <type>CkeditorGrailsPlugin</type>
+  <resources>
+    <resource>CkeditorUrlMappings</resource>
+    <resource>org.gualdi.grails.plugins.ckeditor.OpenFileManagerConnectorController</resource>
+    <resource>org.gualdi.grails.plugins.ckeditor.CkeditorTagLib</resource>
+    <resource>org.gualdi.grails.plugins.ckeditor.OpenFileManagerTagLib</resource>
+  </resources>
+  <repositories>
+    <repository name='grailsCentral' url='http://plugins.grails.org' />
+    <repository name='http://repo.grails.org/grails/plugins' url='http://repo.grails.org/grails/plugins/' />
+    <repository name='http://repo.grails.org/grails/core' url='http://repo.grails.org/grails/core/' />
+    <repository name='grailsCore' url='http://svn.codehaus.org/grails/trunk/grails-plugins' />
+    <repository name='mavenCentral' url='http://repo1.maven.org/maven2/' />
+  </repositories>
+  <dependencies />
+  <plugins>
+    <build>
+      <plugin group='org.grails.plugins' name='tomcat' version='2.0.3' />
+    </build>
+  </plugins>
+  <runtimePluginRequirements />
+  <behavior />
+</plugin>

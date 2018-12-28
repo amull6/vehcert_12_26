@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: cn.com.wz:itext:asian:5.0.6">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/cn/com/wz/itext/5.0.6/itext-5.0.6-asian.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/cn/com/wz/itext/5.0.6/itext-5.0.6-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/cn/com/wz/itext/5.0.6/itext-5.0.6-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

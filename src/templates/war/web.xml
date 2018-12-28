@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.5"
+         metadata-complete="true"
+         xmlns="http://java.sun.com/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+
+    <display-name>/@grails.project.key@</display-name>
+
+    <session-config>
+    	<session-timeout>20</session-timeout>
+    </session-config>
+
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>/WEB-INF/applicationContext.xml</param-value>
+    </context-param>
+
+    <context-param>
+        <param-name>webAppRootKey</param-name>
+        <param-value>@grails.project.key@</param-value>
+    </context-param>
+
+    <!-- CAS -->
+    <!-- 单点登出 -->
+    <filter>
+        <filter-name>CAS Single Sign Out Filter</filter-name>
+        <filter-class>parent.cas.session.SingleSignOutFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>CAS Single Sign Out Filter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+    <listener>
+        <listener-class>parent.cas.session.SingleSignOutHttpSessionListener</listener-class>
+    </listener>
+    <!--单点登录 -->
+    <filter>
+        <filter-name>CAS Authentication Filter</filter-name>
+        <filter-class>parent.cas.authentication.AuthenticationFilter</filter-class>
+        <!-- CAS login 服务地址 casServerLoginUrl废弃，改为在配置文件中配置-->
+        <init-param>
+            <param-name>casServerLoginUrl</param-name>
+            <param-value>https://cas.server:8443/cas/login</param-value>
+        </init-param>
+        <init-param>
+            <param-name>renew</param-name>
+            <param-value>false</param-value>
+        </init-param>
+        <init-param>
+            <param-name>gateway</param-name>
+            <param-value>false</param-value>
+        </init-param>
+        <!-- 客户端应用服务地址 废弃 serverName和service改为在配置文件中配置-->
+        <init-param>
+            <param-name>serverName</param-name>
+            <param-value>http://localhost:9999/</param-value>
+        </init-param>
+        <init-param>
+            <param-name>service</param-name>
+            <param-value>http://localhost:1111/basePlatform/login/doLogin</param-value>
+        </init-param>
+    </filter>
+
+    <!--&lt;!&ndash;负责Ticket校验&ndash;&gt;-->
+    <!--<filter>-->
+        <!--<filter-name>CAS Validation Filter</filter-name>-->
+        <!--<filter-class>parent.cas.validation.Cas20ProxyReceivingTicketValidationFilter</filter-class>-->
+
+        <!--&lt;!&ndash;casServerUrlPrefix必须配置&ndash;&gt;-->
+        <!--<init-param>-->
+            <!--<param-name>casServerUrlPrefix</param-name>-->
+            <!--&lt;!&ndash;下面一定要是主机名称（客户端主机要添加服务器主机名称与服务器的IP映射，在host文件中添加），-->
+            <!--其他的可以用IP（我遇到了这样的问题），casserver产生密钥的时候输入的"姓名(CN)",并且要有这个域名,或者hosts文件中要有定义-->
+              <!--https://cas.server:8443/cas不能写成https://cas.server:8443/cas/login-->
+             <!--&ndash;&gt;-->
+            <!--<param-value>http://cas.wuzheng.com.cn:9999</param-value>-->
+        <!--</init-param>-->
+        <!--&lt;!&ndash;serverName、service已废弃改为在配置文件中配置&ndash;&gt;-->
+        <!--<init-param>-->
+            <!--<param-name>serverName</param-name>-->
+            <!--<param-value>http://localhost:9999</param-value>&lt;!&ndash;这里写客户端的端口号 &ndash;&gt;-->
+        <!--</init-param>-->
+        <!--<init-param>-->
+            <!--<param-name>service</param-name>-->
+            <!--<param-value>http://localhost:1111/basePlatform/login/doLogin</param-value>-->
+        <!--</init-param>-->
+        <!--<init-param>-->
+            <!--<param-name>useSession</param-name>-->
+            <!--<param-value>true</param-value>-->
+        <!--</init-param>-->
+        <!--<init-param>-->
+            <!--<param-name>redirectAfterValidation</param-name>-->
+            <!--<param-value>true</param-value>-->
+        <!--</init-param>-->
+    <!--</filter>-->
+
+    <!--<filter>-->
+        <!--<filter-name>CAS HttpServletRequest WrapperFilter</filter-name>-->
+        <!--<filter-class>parent.cas.util.HttpServletRequestWrapperFilter</filter-class>-->
+    <!--</filter>-->
+
+    <!--<filter>-->
+        <!--<filter-name>CAS Assertion Thread Local Filter</filter-name>-->
+        <!--<filter-class>parent.cas.util.AssertionThreadLocalFilter</filter-class>-->
+    <!--</filter>-->
+
+    <!--<filter-mapping>-->
+        <!--<filter-name>CAS Authentication Filter</filter-name>-->
+        <!--<url-pattern>/*</url-pattern>-->
+    <!--</filter-mapping>-->
+
+    <!--<filter-mapping>-->
+        <!--<filter-name>CAS Validation Filter</filter-name>-->
+        <!--<url-pattern>/*</url-pattern>-->
+
+    <!--</filter-mapping>-->
+
+    <!--<filter-mapping>-->
+        <!--<filter-name>CAS HttpServletRequest WrapperFilter</filter-name>-->
+        <!--<url-pattern>/*</url-pattern>-->
+    <!--</filter-mapping>-->
+
+    <!--<filter-mapping>-->
+        <!--<filter-name>CAS Assertion Thread Local Filter</filter-name>-->
+        <!--<url-pattern>/*</url-pattern>-->
+    <!--</filter-mapping>-->
+    <!-- END CAS -->
+
+	    <filter>
+	        <filter-name>Login Filter</filter-name>
+	        <filter-class>parent.security.LoginFilter</filter-class>
+	        <init-param>
+	            <param-name>encoding</param-name>
+	            <param-value>UTF-8</param-value>
+	        </init-param>
+            <!--true表示强制使用上面设置的encoding；false表示仅在request中没有encoding设置时使用上面的encoding设置-->
+            <init-param>
+                <param-name>ignore</param-name>
+                <param-value>true</param-value>
+            </init-param>
+	    </filter>
+	    <filter-mapping>
+	        <filter-name>Login Filter</filter-name>
+	        <url-pattern>/*</url-pattern>
+	    </filter-mapping>
+	    <filter-mapping>
+	        <filter-name>Login Filter</filter-name>
+	        <servlet-name>action</servlet-name>
+	    </filter-mapping>
+
+    <filter>
+        <filter-name>sitemesh</filter-name>
+        <filter-class>org.codehaus.groovy.grails.web.sitemesh.GrailsPageFilter</filter-class>
+    </filter>
+
+    <filter>
+        <filter-name>charEncodingFilter</filter-name>
+        <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+        <init-param>
+            <param-name>targetBeanName</param-name>
+            <param-value>characterEncodingFilter</param-value>
+        </init-param>
+        <init-param>
+            <param-name>targetFilterLifecycle</param-name>
+            <param-value>true</param-value>
+        </init-param>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>charEncodingFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+    <filter-mapping>
+        <filter-name>sitemesh</filter-name>
+        <url-pattern>/*</url-pattern>
+        <dispatcher>REQUEST</dispatcher>
+        <dispatcher>ERROR</dispatcher>
+    </filter-mapping>
+
+    <listener>
+        <listener-class>org.codehaus.groovy.grails.web.context.GrailsContextLoaderListener</listener-class>
+    </listener>
+
+    <!-- Grails dispatcher servlet -->
+    <servlet>
+        <servlet-name>grails</servlet-name>
+        <servlet-class>org.codehaus.groovy.grails.web.servlet.GrailsDispatcherServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+
+    </servlet>
+
+    <!-- The Groovy Server Pages servlet -->
+    <servlet>
+        <servlet-name>gsp</servlet-name>
+        <servlet-class>org.codehaus.groovy.grails.web.pages.GroovyPagesServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>gsp</servlet-name>
+        <url-pattern>*.gsp</url-pattern>
+    </servlet-mapping>
+
+    <welcome-file-list>
+        <!--
+        The order of the welcome pages is important.  JBoss deployment will
+        break if index.gsp is first in the list.
+        -->
+        <welcome-file>index.html</welcome-file>
+        <welcome-file>index.jsp</welcome-file>
+        <welcome-file>index.gsp</welcome-file>
+    </welcome-file-list>
+
+    <jsp-config>
+        <taglib>
+            <taglib-uri>http://java.sun.com/jsp/jstl/core</taglib-uri>
+            <taglib-location>/WEB-INF/tld/c.tld</taglib-location>
+        </taglib>
+        <taglib>
+            <taglib-uri>http://java.sun.com/jsp/jstl/fmt</taglib-uri>
+            <taglib-location>/WEB-INF/tld/fmt.tld</taglib-location>
+        </taglib>
+        <taglib>
+            <taglib-uri>http://www.springframework.org/tags</taglib-uri>
+            <taglib-location>/WEB-INF/tld/spring.tld</taglib-location>
+        </taglib>
+        <taglib>
+            <taglib-uri>http://grails.codehaus.org/tags</taglib-uri>
+            <taglib-location>/WEB-INF/tld/grails.tld</taglib-location>
+        </taglib>
+    </jsp-config>
+
+    <mime-mapping>
+    <extension>doc</extension>
+    <mime-type>application/msword</mime-type>
+</mime-mapping>
+    <mime-mapping>
+        <extension>docx</extension>
+        <mime-type>application/msword</mime-type>
+    </mime-mapping>
+    <mime-mapping>
+        <extension>xls</extension>
+        <mime-type>application/msexcel</mime-type>
+    </mime-mapping>
+    <mime-mapping>
+        <extension>xlsx</extension>
+        <mime-type>application/msexcel</mime-type>
+    </mime-mapping>
+    <mime-mapping>
+        <extension>pdf</extension>
+        <mime-type>application/pdf</mime-type>
+    </mime-mapping>
+    <mime-mapping>
+        <extension>zip</extension>
+        <mime-type>application/zip</mime-type>
+    </mime-mapping>
+    <mime-mapping>
+        <extension>rar</extension>
+        <mime-type>application/rar</mime-type>
+    </mime-mapping>
+    <mime-mapping>
+        <extension>txt</extension>
+        <mime-type>application/txt</mime-type>
+    </mime-mapping>
+    <mime-mapping>
+        <extension>chm</extension>
+        <mime-type>application/mshelp</mime-type>
+    </mime-mapping>
+</web-app>
