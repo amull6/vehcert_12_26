@@ -102,8 +102,8 @@ class NewDmsSynService {
      */
     def findVinOfDistributor(def distributorCode){
         try {
-//            GetDataFromCRMSoap12Stub service=  new GetDataFromCRMLocator().getGetDataFromCRMSoap12(new URL("http://crmwebservice.wuzheng.com.cn:8089/GetDataFromCRM.asmx"))      //正式地址
-            GetDataFromCRMSoap12Stub service=  new GetDataFromCRMLocator().getGetDataFromCRMSoap12(new URL("http://192.168.0.34:8089/GetDataFromCRM.asmx"))      //测试地址
+            GetDataFromCRMSoap12Stub service=  new GetDataFromCRMLocator().getGetDataFromCRMSoap12(new URL("http://crmwebservice.wuzheng.com.cn:8089/GetDataFromCRM.asmx"))      //正式地址
+//            GetDataFromCRMSoap12Stub service=  new GetDataFromCRMLocator().getGetDataFromCRMSoap12(new URL("http://192.168.0.34:8089/GetDataFromCRM.asmx"))      //测试地址
 //            ################新接口已经不用使用账号和密码登陆了，所以以下部分注释掉BEGIN ############
 //            service.username="wzcrm"
 //            service.password="WZcrm365@2017"

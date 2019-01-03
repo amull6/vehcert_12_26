@@ -46,11 +46,13 @@ class DealerPrintController extends BaseController{
         //获取文件绝对路径
         def oldFilepath = rootDir+path
         String rootPath = request.getSession().getServletContext().getRealPath("")
-        File file = new File(rootPath+'/pdf')
-        if(!file .exists()){
-            (new File(rootPath+'/pdf')).mkdirs(); // 如果文件夹不存在 则建立新文件夹
-        }
         def newFilepath = rootPath+'/pdf'+path
+        int index = newFilepath.lastIndexOf("/");
+        def filePath = newFilepath.substring(0,index)
+        File file = new File(filePath)
+        if(!file .exists()){
+            (new File(filePath)).mkdirs(); // 如果文件夹不存在 则建立新文件夹
+        }
         try {
             int bytesum = 0;
             int byteread = 0;
