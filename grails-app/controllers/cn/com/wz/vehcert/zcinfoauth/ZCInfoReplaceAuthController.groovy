@@ -2311,6 +2311,9 @@ class ZCInfoReplaceAuthController extends BaseController {
                 zcinfoReplace.remark = params.remark
                 zcinfoReplace.salesmanname = params.salesmanname
                 zcinfoReplace.salesmantel = params.salesmantel
+                if(params.formal){
+                    zcinfoReplace.formal = params.formal
+                }
                 zcinfoReplace.createrId = loginUser.id
                 zcinfoReplace.createTime = DateUtil.getCurrentTime()
                 if (zcinfoReplace.save(flush: true)) {
@@ -2478,6 +2481,10 @@ class ZCInfoReplaceAuthController extends BaseController {
                 zcinfoReplace.remark = params.remark
                 zcinfoReplace.salesmanname = params.salesmanname
                 zcinfoReplace.salesmantel = params.salesmantel
+                if(params.formal){
+                    zcinfoReplace.formal = params.formal
+                    replaceForSupplement.formal = params.formal
+                }
                 zcinfoReplace.createrId = loginUser.id
                 zcinfoReplace.createTime = DateUtil.getCurrentTime()
 

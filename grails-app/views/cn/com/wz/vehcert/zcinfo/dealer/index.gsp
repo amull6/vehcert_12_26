@@ -13,8 +13,8 @@
         <form id="form_query" style="margin:8px;">
             <table style="width:100%;border:0px;">
                 <tr>
-                    <td width="100"><span>车辆识别代号：</span></td>
-                    <td width="100"><span><g:textField id="veh_Clsbdh" name="veh_Clsbdh" maxlength="500" value="${zciInfoModel?.veh_Clsbdh}"/></span></td>
+                    <td width="100"><span>完整合格证编号：</span></td>
+                    <td width="100"><span><g:textField id="veh_Zchgzbh_0" name="veh_Zchgzbh_0" maxlength="500" value="${zciInfoModel?.veh_Zchgzbh_0}"/></span></td>
                     <td width='20'></td>
                     <td width='20'></td>
                     <td align="left" valign="middle">
@@ -195,7 +195,7 @@
 </div>
 <script>
     $(function() {
-        $('#veh_Clsbdh').omCombo({
+        $('#veh_Zchgzbh_0').omCombo({
             multi : false ,
             dataSource : "${createLink(controller:'ZCInfo',action:'salecarsOfDistributor')}?random="+Math.random(),
             value:'',

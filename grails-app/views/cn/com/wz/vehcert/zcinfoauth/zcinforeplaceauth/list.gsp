@@ -149,8 +149,8 @@
                     var veh_coc_status=$("#veh_coc_status").val();
                     //当节点没有选中的情况，导出s通讯录中所有的数据
                     dialogId=showTipDialog();
-                    initId=setInterval("getResult();",'3000');
                     var url="${createLink(controller:'ZCInfoReplaceAuth',action:'shenheexport')}?format=excel&extension=xlsx&searchType=1&veh_Clsbdh="+veh_Clsbdh+"&veh_Fdjh="+veh_Fdjh+"&firstTime="+firstTime+"&secondTime="+secondTime+"&veh_coc_status=00&user.id="+id+"&distributor.id="+idD;
+                    initId=setInterval("getResult();",'3000');
                     window.location.href=url;
                 });
 	                   $('#btn_clear').omButton({

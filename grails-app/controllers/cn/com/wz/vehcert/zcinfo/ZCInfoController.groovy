@@ -1820,6 +1820,10 @@ class ZCInfoController extends BaseController {
                     def zcInfoReplaceInstance1= perfectZcinforeplace(oldHgz,hgz,zcInfoReplaceInstance)
                     //处理原合格证号不存在时，原合格证号不显示的问题
                     zcInfoReplaceInstance1.veh_Zchgzbh= params.veh_Zchgzbh_Re
+                    //新建非更换合格证信息不传CRM
+                    if(params.veh_Zchgzbh_Re==''||params.veh_Zchgzbh_Re==null||params.veh_Zchgzbh_Re==hgz.veh_Zchgzbh){
+                        zcInfoReplaceInstance1.transToCrm=1
+                    }
                     //插入修改记录
                     if (!oldHgz || oldHgz.web_status=='1' || oldHgz.web_status=='3'){ //已经上传到国家
                         zcInfoReplaceInstance1.veh_isupload=1
@@ -2153,12 +2157,12 @@ class ZCInfoController extends BaseController {
      */
     def index_ZCI()
     {
-        def  veh_Clsbdh  = params.veh_Clsbdh;  ///虚拟合格证编号信息
-        if (!veh_Clsbdh){
+        def  veh_Zchgzbh_0  = params.veh_Zchgzbh_0;  ///虚拟合格证编号信息
+        if (!veh_Zchgzbh_0){
             render(view:'/cn/com/wz/vehcert/zcinfo/dealer/index')
             return
         }
-        def  zciInfoModel =  ZCInfo.findByVeh_Clsbdh(veh_Clsbdh)
+        def  zciInfoModel =  ZCInfo.findByVeh_Zchgzbh_0(veh_Zchgzbh_0)
         render(view:'/cn/com/wz/vehcert/zcinfo/dealer/index',model: [zciInfoModel:zciInfoModel])
     }
 
@@ -3675,7 +3679,10 @@ class ZCInfoController extends BaseController {
                 array {
                     for (m in vinList) {
                         if(m.new_loanislock==0||m.new_loanislock==6){
-                            pack(text:m.new_vin ,value:m.new_vin)
+                            List ZcinfoList = ZCInfo.findAllByVeh_Clsbdh(m.new_vin)
+                            ZcinfoList.each{zcinfo->
+                                pack(text:zcinfo.veh_Zchgzbh_0 ,value:zcinfo.veh_Zchgzbh_0)
+                            }
                         }
                     }
                 }
@@ -3712,12 +3719,12 @@ class ZCInfoController extends BaseController {
      */
     def checkLimit() {
         def result=[:]
-        def  veh_Clsbdh  = params.veh_Clsbdh;  ///虚拟合格证编号信息
-        if (!veh_Clsbdh){
+        def  veh_Zchgzbh_0  = params.veh_Zchgzbh_0;  ///虚拟合格证编号信息
+        if (!veh_Zchgzbh_0){
             render(view:'/cn/com/wz/vehcert/zcinfo/dealer/index')
             return
         }
-        def  zcinfoModel =  ZCInfo.findByVeh_Clsbdh(veh_Clsbdh)
+        def  zcinfoModel =  ZCInfo.findByVeh_Zchgzbh_0(veh_Zchgzbh_0)
         if(zcinfoModel){
             def user=session.getAttribute(ConstantsUtil.LOGIN_USER)
             def loginUser=User.get(user.id)

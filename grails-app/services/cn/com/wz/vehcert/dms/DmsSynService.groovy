@@ -158,6 +158,7 @@ class DmsSynService {
               }
               isNotNull('veh_Zchgzbh_0_R')  //更换后的整车合格证编号不为空
               isNotNull('SAP_No')           //更换后的SAP序列号不能为空（新DMS打开）
+              eq('formal',0)
               order("authTime","asc")
           }
           transfChangeDataList=ZCInfoReplace.createCriteria().list(cel)
