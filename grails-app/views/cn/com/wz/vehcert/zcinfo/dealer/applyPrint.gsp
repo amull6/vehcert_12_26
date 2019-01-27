@@ -3,8 +3,8 @@
 <head>
     <meta http-equiv="X-UA-Compatible" content="IE=IE8,chrome=1">
     <meta name="layout" content="main">
-    <g:set var="entityName" value="经销商自助打印次数管理" />
-    <title>经销商自助打印次数管理</title>
+    <g:set var="entityName" value="经销商自助打印申请" />
+    <title>经销商自助打印申请</title>
 </head>
 <body>
 <div id="page" style="background-color:white;">
@@ -24,12 +24,10 @@
 
         </form>
         <fieldset class="buttons" style="margin:0px 8px 8px 4px;">
-                %{--<input id="btn_create" type="button" class="create" value="${message(code: 'default.button.create.label', default: 'Create')}"/>--}%
-                <input id="btn_edit" type="button"  class="edit" value="${message(code: 'default.button.edit.label', default: 'Edit')}"/>
-                <input id="btn_view" type="button"  class="view" value="${message(code: 'default.button.view.label', default: 'View')}"/>
+                <input id="btn_apply" type="button"  class="edit" value="${message(code: 'default.button.apply.label', default: 'Apply')}"/>
         </fieldset>
         <div style="margin-right:8px;margin-top:8px;">
-            <div id="printCount_grid" style="border:0px"></div>
+            <div id="printCount_Grid" style="border:0px"></div>
         </div>
     </div>
 </div>
@@ -38,14 +36,13 @@
     var initId='';
     $(function() {
         $('#page').css({height:$(document).height()-16});
-
         //绑定查询按钮事件
         $('#btn_query').omButton({
             width:80,
             onClick:function(){
-                var url = "${createLink(controller:'printCount',action:'jsonList')}";
+                var url = "${createLink(controller:'printCount',action:'zcinfoList')}";
                 url+='?'+$('#form_query').serialize();
-                $('#printCount_grid').omGrid('setData',url);
+                $('#printCount_Grid').omGrid('setData',url);
             }
         });
         //绑定清除按钮事件
@@ -55,39 +52,40 @@
                 $("#veh_Zchgzbh_0").val('');
             }
         });
-        $('#btn_edit').click(function(){
-            var url = '${createLink(controller:'printCount',action:'edit')}';
-            var selected = $('#printCount_grid').omGrid('getSelections',true);
-            if(selected.length==0){
-                alert('${message(code:'default.grid.not.selection',default:'Please select record')}');
-            }else if(selected.length>1){
-                alert('${message(code:'default.grid.one.selection',default:'Please Select only one Record')}')
-            }else{
-                window.location.href = url+'/'+selected[0].id;
-            }
-        });
         $("#tf_name").keydown(function(e){
             if(e.keyCode==13){
                 $('#btn_query').click();
                 return false;
             }
         });
-        $('#btn_view').click(function(){
-            var url = '${createLink(controller:'printCount',action:'show')}';
-            var selected = $('#printCount_grid').omGrid('getSelections',true);
-            if(selected.length==0){
-                alert('${message(code:'default.grid.not.selection',default:'Please select record')}');
-            }else if(selected.length>1){
-                alert('${message(code:'default.grid.one.selection',default:'Please Select only one Record')}')
-            }else{
-                window.location.href = url+'/'+selected[0].id;
+        //批量提交申请
+        $('#btn_apply').click(function(){
+            //这里利用Ajax删除数据
+            var selections = $('#printCount_Grid').omGrid('getSelections',true);
+            if(selections.length==0){
+                alert('${message(code: 'default.selection.empty.message', default: 'Please select record')}');
+                return;
             }
+            $.omMessageBox.confirm({
+                title:'${message(code: 'default.confirmDialog.title.label', default: 'Confirm Dialog')}',
+                content:'${message(code: 'default.button.apply.confirm.message', default: 'Are you sure?')}',
+                onClose:function(v){
+                    if(v){
+                        var applyUrl = '${createLink(controller:'printCount',action:'applyBatch')}';
+                        var applyIds = '';
+                        $.each(selections,function(i,item){
+                            applyIds += item.id+'_';
+                        });
+                        $.post(applyUrl,{"applyIds":applyIds},function(data,textStatus){
+                            var selections = $('#printCount_Grid').omGrid('reload');
+                            var content = data;
+                            showTopTip(content.msg);
+                        },'json');
+                    }
+                }
+            });
         });
-
     })
-
-
-
     //获取组合结果
     function getResult(){
         var url='${createLink(controller:'heavyGas',action:'getCompResult')}';
@@ -131,12 +129,12 @@
         buildRightGrid();
     });
     function buildRightGrid(){
-        $('#printCount_grid').omGrid({
-            dataSource:'${createLink(controller:'printCount',action:'jsonList')}',
+        $('#printCount_Grid').omGrid({
+            dataSource:'${createLink(controller:'printCount',action:'zcinfoList')}',
             title:"<g:message code="default.list.label" args="[entityName]"/>",
             singleSelect:false,
-            limit : 10,
-            height :390,
+            limit : 12,
+            height :440,
             colModel:[
                 {header : "${message(code: 'zcinfo.SAP_No.label', default: 'SAP序列号')}", name : 'SAP_No', width : 70, align : 'center'},
                 {header : "${message(code: 'zcinfo.veh_Zchgzbh_0.label', default: '完整合格证编号')}", name : 'veh_Zchgzbh_0', width : 150, align : 'center'},
@@ -163,59 +161,29 @@
                             return '<span style="color: red">拒绝</span>';
                         }else if(value==4){
                             return '<span style="color: black">打印完毕</span>';
+                        }else if(value==5){
+                            return '<span style="color: black">初始状态</span>';
                         }
                     }},
-                {header : "经销商", name : 'applicant', width : 80, align : 'center'},
                 {header : "申请时间", name : 'application_Time', width : 120, align : 'center'},
-                {header : "审核时间", name : 'auth_Time', width : 120, align : 'center'},
-                {header : "${message(code: 'zcinfo.opertion.label', default: '操作')}", name : 'status', width: 150, align:'center', renderer:
-                    function(value, rowData, rowIndex){
-                        if(value==0){
-                            //任何审核的地方都没做审核处理的，可以编辑、删除,分别表示正常更换和特殊更换两种情况未作任何审核操作的内容
-                            return "<a id='btn_pass' class='btn_basic blue_black' href='javascript:gotoPass("+rowIndex+")'>通过</a>" +
-                                "&nbsp&nbsp<a id='btn_refuse' class='btn_basic blue_black' href='javascript:refuse("+rowIndex+")'>拒绝</a>";
-                        }else if(value==1){
-                            return "<a id='btn_add' class='btn_basic blue_black' href='javascript:gotoPass("+rowIndex+")'>增加打印次数</a>";
-                            "&nbsp&nbsp<a id='btn_refuse' class='btn_basic blue_black' href='javascript:refuse("+rowIndex+")'>拒绝</a>";
-                        }else{
-                            return "";
-                        }
-                    }},
+                %{--{header : "${message(code: 'zcinfo.opertion.label', default: '操作')}", name : 'status', width: 150, align:'center', renderer:--}%
+                    %{--function(value, rowData, rowIndex){--}%
+                        %{--if(value==0){--}%
+                            %{--//任何审核的地方都没做审核处理的，可以编辑、删除,分别表示正常更换和特殊更换两种情况未作任何审核操作的内容--}%
+                            %{--return "<a id='btn_pass' class='btn_basic blue_black' href='javascript:gotoPass("+rowIndex+")'>通过</a>" +--}%
+                                %{--"&nbsp&nbsp<a id='btn_refuse' class='btn_basic blue_black' href='javascript:refuse("+rowIndex+")'>拒绝</a>";--}%
+                        %{--}else if(value==1){--}%
+                            %{--return "<a id='btn_add' class='btn_basic blue_black' href='javascript:gotoPass("+rowIndex+")'>增加打印次数</a>";--}%
+                            %{--"&nbsp&nbsp<a id='btn_refuse' class='btn_basic blue_black' href='javascript:refuse("+rowIndex+")'>拒绝</a>";--}%
+                        %{--}else{--}%
+                            %{--return "";--}%
+                        %{--}--}%
+                    %{--}},--}%
             ]
         });
     }
-    //通过审核申请一次自主打印
-    function gotoPass(index){
-        var data = $("#printCount_grid").omGrid("getData").rows[index];
-        var url = '${createLink(controller:'printCount',action:'gotoPass')}?id='+data.id;
-        $.post(url,{},function(data,textStatus){
-            //判断是否已处理完成
-            if(data=='success'){
-                var selections = $('#printCount_grid').omGrid('reload');
-                showTopTip('已审核通过');
-            }else if(data=='fail'){
-                var selections = $('#printCount_grid').omGrid('reload');
-                showTopTip('审核失败');
-            }
-        });
-    }
-    //拒绝申请的一次自主打印
-    function refuse(index){
-        var data = $("#printCount_grid").omGrid("getData").rows[index];
-        var url = '${createLink(controller:'printCount',action:'refuse')}?id='+data.id;
-        $.post(url,{},function(data,textStatus){
-            //判断是否已处理完成
-            if(data=='success'){
-                var selections = $('#printCount_grid').omGrid('reload');
-                showTopTip('已拒绝');
-            }else if(data=='fail'){
-                var selections = $('#printCount_grid').omGrid('reload');
-                showTopTip('拒绝失败');
-            }
-        });
-    }
     function backFunc(result){
-        $('#printCount_grid').omGrid('reload');
+        $('#printCount_Grid').omGrid('reload');
     }
     function showTopTip(content){
         $.omMessageTip.show({

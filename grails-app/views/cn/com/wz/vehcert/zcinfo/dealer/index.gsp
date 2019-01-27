@@ -262,60 +262,88 @@
             }
         });
     })
-    function zcinfoPrint(){
-        var url = "${createLink(controller:'ZCInfo',action:'download_ZCI')}";
-        url+='?'+$('#form_query').serialize()+'&type=0';
-        //要求用户确认下载
-        $.omMessageBox.confirm({
-            title:'${message(code: 'default.confirmDialog.title.label', default: 'Confirm Dialog')}',
-            content:'${message(code: 'vehcert.button.dowload.confirm.message', default: '是否确认打印正式合格证?')}',
-            onClose:function(v){
-                if(v){
-                    $.post(url,function(data,textStatus){
-                        data=eval("("+data+")");
-                        if(data.flag=='success'){
-                            var updateurl = "${createLink(controller:'ZCInfoTemp',action:'checkCount')}";
-                            updateurl+='?'+$('#form_query').serialize();
-                            $.post(updateurl,function(checkData,textStatus){
-                                checkData=eval("("+checkData+")");
-                                if(checkData.flag=='1'){
+
+    function zcinfoPrint() {
+        var updateurl = "${createLink(controller:'ZCInfoTemp',action:'checkCount')}";
+        updateurl += '?' + $('#form_query').serialize();
+        $.post(updateurl, function (checkData, textStatus) {
+            checkData = eval("(" + checkData + ")");
+            if (checkData.flag == '1') {
+                //要求用户确认下载
+                $.omMessageBox.confirm({
+                    title: '${message(code: 'default.confirmDialog.title.label', default: 'Confirm Dialog')}',
+                    content: '${message(code: 'vehcert.button.dowload.confirm.message', default: '是否确认打印正式合格证?')}',
+                    onClose: function (v) {
+                        if (v) {
+                            var url = "${createLink(controller:'ZCInfo',action:'download_ZCI')}";
+                            url += '?' + $('#form_query').serialize() + '&type=0';
+                            $.post(url, function (data, textStatus) {
+                                data = eval("(" + data + ")");
+                                if (data.flag == 'success') {
                                     var fileCopyUrl = "${createLink(controller:'dealerPrint',action:'fileCopy')}";
-                                    fileCopyUrl+='?path='+data.upload_path
+                                    fileCopyUrl += '?path=' + data.upload_path
                                     console.log(fileCopyUrl)
-                                    $.post(fileCopyUrl,function(fileCopyData,textStatus){
-                                        fileCopyData=eval("("+fileCopyData+")");
-                                        if(fileCopyData.flag=='1'){
-                                            window.location.href="${createLink(controller:'dealerPrint',action:'forDealerPrint')}?path="+data.upload_path;
-                                        }else{
+                                    $.post(fileCopyUrl, function (fileCopyData, textStatus) {
+                                        fileCopyData = eval("(" + fileCopyData + ")");
+                                        if (fileCopyData.flag == '1') {
+                                            window.location.href = "${createLink(controller:'dealerPrint',action:'forDealerPrint')}?path=" + data.upload_path+$('#form_query').serialize();
+                                        } else {
                                             alert(fileCopyData.msg);
                                         }
-                                    },'text');
-                                }else{
-                                    alert(checkData.msg);
+                                    }, 'text');
+                                } else {
+                                    if (data.msg == '1') {
+                                        alert("合格证记录不存在，请重新选择！");
+                                    } else if (data.msg == '2') {
+                                        alert("公告批次错误或已扩展，请更换后再操作！");
+                                    } else if (data.msg == '3') {
+                                        alert("发证日期已超过48小时，请更换后再操作！");
+                                    } else if (data.msg == '4') {
+                                        alert("打印PDf后合格证信息更新失败！");
+                                    } else if (data.msg == '5') {
+                                        alert("保存下载/打印记录失败！");
+                                    } else if (data.msg == '6') {
+                                        alert("您没有权限打印或下载此合格证，请联系CRM系统管理员查看此车状态！");
+                                    } else {
+                                        alert(data.msg);
+                                    }
                                 }
-                            },'text');
-                        }else{
-                            if(data.msg=='1'){
-                                alert("合格证记录不存在，请重新选择！");
-                            }else if (data.msg=='2'){
-                                alert("公告批次错误或已扩展，请更换后再操作！");
-                            }else if (data.msg=='3'){
-                                alert("发证日期已超过48小时，请更换后再操作！");
-                            }else if (data.msg=='4'){
-                                alert("打印PDf后合格证信息更新失败！");
-                            }else if (data.msg=='5'){
-                                alert("保存下载/打印记录失败！");
-                            }else if(data.msg=='6'){
-                                alert("您没有权限打印或下载此合格证，请联系CRM系统管理员查看此车状态！");
-                            }else {
-                                alert(data.msg);
-                            }
+                            }, 'text');
                         }
-                    },'text');
-
-                }
+                    }
+                });
+            } else if (checkData.flag == '0') {
+                $.omMessageBox.confirm({
+                    title: '${message(code: 'default.confirmDialog.title.label', default: 'Confirm Dialog')}',
+                    content: '${message(code: 'vehcert.button.limitPrint.confirm.message', default: '打印次数使用完毕，是否申请申请增加打印次数？')}',
+                    onClose: function (v) {
+                        if (v) {
+                            var applyAddUrl = "${createLink(controller:'dealerPrint',action:'applyCount')}";
+                            applyAddUrl += '?' + $('#form_query').serialize();
+                            $.post(applyAddUrl, function (applyAddData, textStatus) {
+                                applyAddData = eval("(" + applyAddData + ")");
+                                showTopTip(applyAddData.msg)
+                            }, 'text');
+                        }
+                    }
+                });
+            } else if (checkData.flag == '2') {
+                $.omMessageBox.confirm({
+                    title: '${message(code: 'default.confirmDialog.title.label', default: 'Confirm Dialog')}',
+                    content: '${message(code: 'vehcert.button.init.confirm.message', default: '打印锁定状态,是否申请打印该合格证？')}',
+                    onClose: function (v) {
+                        if (v) {
+                            var applyUrl = "${createLink(controller:'dealerPrint',action:'applyCount')}";
+                            applyUrl += '?' + $('#form_query').serialize();
+                            $.post(applyUrl, function (applyData, textStatus) {
+                                applyData = eval("(" + applyData + ")");
+                                showTopTip(applyData.msg)
+                            }, 'text');
+                        }
+                    }
+                });
             }
-        });
+        }, 'text');
     }
     function down(){
         var url = "${createLink(controller:'ZCInfo',action:'download_ZCI')}";

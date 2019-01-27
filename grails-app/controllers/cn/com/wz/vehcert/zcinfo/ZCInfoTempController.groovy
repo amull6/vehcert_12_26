@@ -400,18 +400,24 @@ class ZCInfoTempController extends BaseController {
         if(distributorPrintCount){
             def limitPrintCount=distributorPrintCount.limitPrintCount
             def printCount=distributorPrintCount.printCount
-            if(printCount+1>limitPrintCount){
-                result.put("msg",'超过打印次数限制，如有需要请联系营销公司申请增加打印次数');
-                result.put("flag",'0')
-                return  render (result as JSON)
+            if(printCount>=limitPrintCount){
+                if(printCount==0){
+                    result.put("msg",'打印锁定状态,是否申请打印该合格证');
+                    result.put("flag",'2')
+                    return  render (result as JSON)
+                }else{
+                    result.put("msg",'打印次数使用完毕，如有需要请联系营销公司申请增加打印次数');
+                    result.put("flag",'0')
+                    return  render (result as JSON)
+                }
             }else{
                 result.put("msg",'允许打印');
                 result.put("flag",'1')
                 return  render (result as JSON)
                 }
         }else{
-            result.put("msg",'允许打印');
-            result.put("flag",'1')
+            result.put("msg",'打印锁定状态,是否申请打印该合格证');
+            result.put("flag",'2')
             return  render (result as JSON)
         }
     }
@@ -443,14 +449,21 @@ class ZCInfoTempController extends BaseController {
             newDistributorPrintCount.veh_Type = zcinfoModel.veh_Type
             newDistributorPrintCount.printCount = 1
             newDistributorPrintCount.limitPrintCount = 1
+            newDistributorPrintCount.SAP_No = zcinfoModel.SAP_No
+            newDistributorPrintCount.status = '4'
+            ///当前登录用户信息
+            User loginUser=session.getAttribute(ConstantsUtil.LOGIN_USER)
+            newDistributorPrintCount.applicant = loginUser.userDetail.realName   ///申请人姓名
+            def nowTime= DateUtil.getCurrentTime()
+            newDistributorPrintCount.application_Time = nowTime
             if (newDistributorPrintCount.save(flush: true)) {
                 result.put("msg", '保存打印次数成功');
                 result.put("flag", '1')
                 return  render (result as JSON)
             }else{
-                result.put("msg", '保存打印次数失败');
+                result.put("msg", '保存打印次数成功');
                 result.put("flag", '0')
-                return render(result as JSON)
+                return  render (result as JSON)
             }
         }
     }
