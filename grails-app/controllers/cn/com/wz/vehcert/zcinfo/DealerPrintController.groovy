@@ -112,7 +112,11 @@ class DealerPrintController extends BaseController{
                 result.put("flag", '4')
                 return  render (result as JSON)
             }else{
-                distributorPrintCount.status = '1'
+                if(distributorPrintCount.limitPrintCount==0&&distributorPrintCount.printCount==0){
+                    distributorPrintCount.status = '0'
+                }else{
+                    distributorPrintCount.status = '1'
+                }
             }
             if (distributorPrintCount.save(flush: true)) {
                 result.put("msg", '申请成功');
