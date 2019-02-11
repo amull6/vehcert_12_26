@@ -141,8 +141,8 @@
                 {header : "${message(code: 'zcinfo.SAP_No.label', default: 'SAP序列号')}", name : 'SAP_No', width : 70, align : 'center'},
                 {header : "${message(code: 'zcinfo.veh_Zchgzbh_0.label', default: '完整合格证编号')}", name : 'veh_Zchgzbh_0', width : 150, align : 'center'},
                 {header : "${message(code: 'zcinfo.veh_Clsbdh.label', default: '车辆识别代号')}", name : 'veh_Clsbdh', width : 200, align : 'center'},
-                {header : "${message(code: 'zcinfo.printCount.label', default: '经销商打印次数')}", name : 'printCount', width : 70, align : 'center'},
-                {header : "${message(code: 'zcinfo.limitPrintCount.label', default: '限制打印次数')}", name : 'limitPrintCount', width : 70, align : 'center'},
+                {header : "${message(code: 'zcinfo.printCount.label', default: '经销商打印次数')}", name : 'printCount', width : 80, align : 'center'},
+                {header : "${message(code: 'zcinfo.limitPrintCount.label', default: '限制打印次数')}", name : 'limitPrintCount', width : 80, align : 'center'},
                 {header : "产品类型", width : 50, align : 'center',name : 'veh_Type',
                     renderer:function(value,rowData,rowIndex){
                         if(value==0){

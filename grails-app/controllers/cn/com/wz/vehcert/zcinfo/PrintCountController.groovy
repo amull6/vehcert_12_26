@@ -81,6 +81,7 @@ class PrintCountController extends BaseController{
             map.status=tmp.status;
             map.applicant=tmp.applicant;
             map.application_Time=tmp.application_Time;
+            map.auth_Time=tmp.auth_Time;
             rows.add(map)
         }
         def result = [rows: rows, total: results.totalCount]
