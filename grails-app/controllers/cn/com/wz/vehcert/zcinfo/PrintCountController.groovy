@@ -288,6 +288,8 @@ class PrintCountController extends BaseController{
         if (!count){
             message="提交${successCount}条申请成功！"
         }
-        render message
+        result.put("msg", message);
+        result.put("flag", '1')
+        return render(result as JSON)
     }
 }
