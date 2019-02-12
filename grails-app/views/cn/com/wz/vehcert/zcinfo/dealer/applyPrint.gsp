@@ -133,7 +133,7 @@
             dataSource:'${createLink(controller:'printCount',action:'zcinfoList')}',
             title:"<g:message code="default.list.label" args="[entityName]"/>",
             singleSelect:false,
-            limit : 12,
+            limit : 60,
             height :440,
             colModel:[
                 {header : "${message(code: 'zcinfo.SAP_No.label', default: 'SAP序列号')}", name : 'SAP_No', width : 70, align : 'center'},
