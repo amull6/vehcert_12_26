@@ -286,7 +286,7 @@
                                     $.post(fileCopyUrl, function (fileCopyData, textStatus) {
                                         fileCopyData = eval("(" + fileCopyData + ")");
                                         if (fileCopyData.flag == '1') {
-                                            window.location.href = "${createLink(controller:'dealerPrint',action:'forDealerPrint')}?path=" + data.upload_path+$('#form_query').serialize();
+                                            window.location.href = "${createLink(controller:'dealerPrint',action:'forDealerPrint')}?"+$('#form_query').serialize()+'&path='+ data.upload_path;
                                         } else {
                                             alert(fileCopyData.msg);
                                         }
