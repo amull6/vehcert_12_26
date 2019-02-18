@@ -64,7 +64,7 @@ class PrintCountController extends BaseController{
             }
             //不显示经销商初始化申请
             ne("status","5")
-            order("application_Time","asc")
+            order("application_Time","desc")
         }
         def results = DistributorPrintCount.createCriteria().list(params,cel)
         def rows=[];
