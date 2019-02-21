@@ -14,6 +14,8 @@
                 <tr>
                     <td width="100"><span><g:message code="zcinfo.veh_Zchgzbh_0.label" default="完整合格证编号" />：</span></td>
                     <td width="100"><span><g:textField id="veh_Zchgzbh_0" name="veh_Zchgzbh_0" maxlength="200"/></span></td>
+                    <td width="50"><span><g:message code="zcinfo.status.label" default="状态" />：</span></td>
+                    <td width="80"><span><g:select style="width:100px;" id="status" name="status" from="${['0':'打印初次申请状态','1':'申请增加打印次数','2':'通过状态','3':'拒绝状态','4':'打印完毕状态','5':'初始状态']}"  optionKey="key" optionValue="value"></g:select></span></td>
                     <td width="60"></td>
                     <td align="left" valign="middle">
                         <input id="btn_query" type="button" value="<g:message code="default.button.query.label" default="Query" />"/>

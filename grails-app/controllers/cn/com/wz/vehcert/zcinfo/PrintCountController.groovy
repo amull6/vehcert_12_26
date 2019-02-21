@@ -62,6 +62,9 @@ class PrintCountController extends BaseController{
             if(params.veh_Zchgzbh_0){
                 eq("veh_Zchgzbh_0","${params.veh_Zchgzbh_0}")
             }
+            if(params.status){
+                eq("status","${params.status}")
+            }
             //不显示经销商初始化申请
             ne("status","5")
             order("application_Time","desc")
@@ -222,6 +225,9 @@ class PrintCountController extends BaseController{
         def cel = {
             if(params.veh_Zchgzbh_0){
                 eq("veh_Zchgzbh_0","${params.veh_Zchgzbh_0}")
+            }
+            if(params.status){
+                eq("status","${params.status}")
             }
             eq("applicant",loginUser.userDetail.realName)
             //不显示经销商初始化申请
