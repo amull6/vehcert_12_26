@@ -263,8 +263,8 @@
     <tr height="10" >
         <td   style=" font-family:'宋体';font-size:14px;">15</td>
         <td  style=" font-family:'宋体';font-size:14px;">出厂检验项目及结论：</td>
-        <td  style=" font-family:'宋体';font-size:14px;">自由加速烟度</td>
-        <td style=" font-family:'宋体';font-size:14px;">符合</td>
+        <td  style=" font-family:'宋体';font-size:14px;">自由加速烟度试验，合格</td>
+        <td style=" font-family:'宋体';font-size:14px;"></td>
     </tr>
 </table>
 <table width="720px;"    border="0px" class="tabp" style="margin-left:15px;font-size: 20px;font-family:'宋体'">
