@@ -22,9 +22,10 @@
         </form>
         <div style="font-size: 14px;color:red;font-weight: bold;margin-top: 5px;">打印前请先将打印机设置在合格证纸张打印模式</div>
         <div align="center">
-            <object id="pdfObj" classid="clsid:CA8A9780-280D-11CF-A24D-444553540000" width="1000" height="1000" border="0">
-                <param  name="src" value="${path}"/>
-            </object>
+            %{--<object id="pdfObj" classid="clsid:CA8A9780-280D-11CF-A24D-444553540000" width="1000" height="1000" border="0">--}%
+                %{--<param  name="src" value="${path}"/>--}%
+            %{--</object>--}%
+            <iframe src="${path}" width="800" height="600"></iframe>
         </div>
     </div>
 </div>
