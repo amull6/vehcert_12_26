@@ -21,8 +21,15 @@ import java.nio.file.FileSystems
  */
 
 class EnvirPrintController extends BaseController {
-
+    def sqlService
     def index() {}
+    /**
+     *@Description 跳转到车间自己得打印合格证列表
+     * @CreteTime 2016-12-21  by zhuwei
+     */
+    def ownLoadList(){
+        render(view:'/cn/com/wz/vehcert/environment/envirodeal/ownloadlist')
+    }
 
     /**
      *@Description 跳转到车间自己得打印合格证列表
@@ -30,6 +37,46 @@ class EnvirPrintController extends BaseController {
      */
     def cheJianList(){
         render(view:'/cn/com/wz/vehcert/environment/envirodeal/chejianlist')
+    }
+    /**
+     * 经销商查询
+     * @author  Xu
+     * @return
+     */
+    def jsonOwnLoadList(){
+        def result=[:]
+        User loginUser=session.getAttribute(ConstantsUtil.LOGIN_USER)
+        ////查询经销商所拥有的合格证信息
+        StringBuffer sql_sbf = new StringBuffer("SELECT distinct veh_zchgzbh as veh_zchgzbh FROM WZH_ZCINFO_TEMP WHERE user_down ='"+loginUser.id+"'");
+        def list =  sqlService.executeList(sql_sbf.toString())
+        params.max = params.limit ? params.int('limit') : 12
+        params.offset = params.start ? params.int('start') : 0
+        params.sort='createTime'
+        params.order="desc"
+        if(list.size()>0){
+            def cel = {
+                or{
+                    list.each {hgz->
+                        eq("veh_Zchgzbh",hgz.veh_zchgzbh)
+                    }
+                }
+
+                if(params.vehCode){
+                    eq("veh_Zchgzbh","${params.vehCode}")
+                }
+                eq('veh_Type','0')
+                isNotNull('veh_Fdjh')  //发动机号不能为空
+                isNotNull('veh_Clsbdh')  //车辆识别代号不能为空
+                eq('veh_Clztxx','QX')
+            }
+
+            def lst = ZCInfo.createCriteria().list(params,cel)
+            result = [rows: lst, total: lst.totalCount]
+        }else{
+            result = [rows: [], total: 0]
+        }
+
+        render result as JSON
     }
 
     /**

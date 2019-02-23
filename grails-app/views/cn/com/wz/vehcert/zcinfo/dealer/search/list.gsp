@@ -449,7 +449,7 @@
 					dataSource:'${createLink(controller:'ZCInfoReplaceAuth',action:'jsonListByDealer')}?searchType=${searchType}&'+$('#form_query').serialize(),
 					title:"<g:message code="default.list.label" args="[entityName]"/>",
 					singleSelect:false,
-					limit : 10,
+					limit : 90,
 					height :440,
 					colModel:[
                         {header : "${message(code: 'zcinfo.opertion.label', default: '操作')}", name : 'id', width: 150, align:'center', renderer:
@@ -548,7 +548,7 @@
                     dataSource:'${createLink(controller:'ZCInfoReplaceAuth',action:'jsonListByDealer')}?searchType=${searchType}&'+$('#form_query').serialize(),
                     title:"<g:message code="default.list.label" args="[entityName]"/>",
                     singleSelect:false,
-                    limit : 10,
+                    limit : 90,
                     height :440,
                     colModel:[
                         {header : "${message(code: 'zcinfo.opertion.label', default: '操作')}", name : 'id', width: 100, align:'center', renderer:
