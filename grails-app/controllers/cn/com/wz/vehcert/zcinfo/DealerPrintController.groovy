@@ -105,6 +105,7 @@ class DealerPrintController extends BaseController{
         def result=[:]
         def id = params.hidden_id;    ////要更新的合格证ID信息
         def zcinfoModel = ZCInfo.get(id)
+        def nowTime= DateUtil.getCurrentTime()
         DistributorPrintCount distributorPrintCount = DistributorPrintCount.findByVeh_Zchgzbh_0(zcinfoModel.veh_Zchgzbh_0)
         if(distributorPrintCount){
             if(distributorPrintCount.status == '0'||distributorPrintCount.status == '1'){
@@ -114,8 +115,10 @@ class DealerPrintController extends BaseController{
             }else{
                 if(distributorPrintCount.limitPrintCount==0&&distributorPrintCount.printCount==0){
                     distributorPrintCount.status = '0'
+                    distributorPrintCount.application_Time = nowTime
                 }else{
                     distributorPrintCount.status = '1'
+                    distributorPrintCount.application_Time = nowTime
                 }
             }
             if (distributorPrintCount.save(flush: true)) {
@@ -139,7 +142,6 @@ class DealerPrintController extends BaseController{
             ///当前登录用户信息
             User loginUser=session.getAttribute(ConstantsUtil.LOGIN_USER)
             newDistributorPrintCount.applicant = loginUser.userDetail.realName   ///申请人姓名
-            def nowTime= DateUtil.getCurrentTime()
             newDistributorPrintCount.application_Time = nowTime
             if (newDistributorPrintCount.save(flush: true)) {
                 result.put("msg", '申请成功');
