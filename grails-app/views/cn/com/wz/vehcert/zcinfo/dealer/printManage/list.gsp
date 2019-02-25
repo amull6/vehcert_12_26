@@ -170,15 +170,15 @@
                 {header : "经销商", name : 'applicant', width : 80, align : 'center'},
                 {header : "申请时间", name : 'application_Time', width : 120, align : 'center'},
                 {header : "审核时间", name : 'auth_Time', width : 120, align : 'center'},
-                {header : "${message(code: 'zcinfo.opertion.label', default: '操作')}", name : 'status', width: 250, align:'center', renderer:
+                {header : "${message(code: 'zcinfo.opertion.label', default: '操作')}", name : 'status', width: 170, align:'center', renderer:
                     function(value, rowData, rowIndex){
                         if(value==0){
                             //任何审核的地方都没做审核处理的，可以编辑、删除,分别表示正常更换和特殊更换两种情况未作任何审核操作的内容
                             return "<a id='btn_pass' class='btn_basic blue_black' href='javascript:gotoPass("+rowIndex+")'>通过</a>" +
                                 "&nbsp&nbsp<a id='btn_refuse' class='btn_basic blue_black' href='javascript:refuse("+rowIndex+")'>拒绝</a>";
                         }else if(value==1){
-                            return "<a id='btn_add' class='btn_basic blue_black' href='javascript:gotoPass("+rowIndex+")'>增加打印次数</a>";
-                            "&nbsp&nbsp<a id='btn_refuse' class='btn_basic blue_black' href='javascript:refuse("+rowIndex+")'>拒绝</a>";
+                            return "<a id='btn_add' class='btn_basic blue_black' href='javascript:gotoPass("+rowIndex+")'>增加打印次数</a>"+
+                            "&nbsp&nbsp<a id='btn_refuse1' class='btn_basic blue_black' href='javascript:refuse("+rowIndex+")'>拒绝</a>";
                         }else{
                             return "";
                         }
