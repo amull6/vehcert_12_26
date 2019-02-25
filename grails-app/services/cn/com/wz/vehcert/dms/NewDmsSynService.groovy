@@ -86,14 +86,14 @@ class NewDmsSynService {
         if(tranfList.size()>0){
             new NewTransChangeInfo(tranfList,logService)
         }
-        if(tranfList.size()>0){
-            tranfList.each{zcInfoReplace->
-                if (zcInfoReplace.transToCrm==2)   {
-                    synService.synZcinfoReplace(zcInfoReplace)
-                }
-            }
-
-        }
+//        if(tranfList.size()>0){
+//            tranfList.each{zcInfoReplace->
+//                if (zcInfoReplace.transToCrm==2)   {
+//                    synService.synZcinfoReplace(zcInfoReplace)
+//                }
+//            }
+//
+//        }
     }
     /**
      * @Description 根据经销商代码查询CRM系统里面经销商下面的车辆VIN
