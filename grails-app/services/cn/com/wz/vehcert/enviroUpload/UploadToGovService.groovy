@@ -112,8 +112,8 @@ class UploadToGovService {
             WSXxgkVinSoap12Stub    service =  new WSXxgkVinLocator().getWSXxgkVinSoap12(new URL("http://web1.vecc-mep.org.cn/WSXxgkVin/WSXxgkVin.asmx"))
 //        vindata数据格式，
 //        <vindatas>
-//        <vindata><vin>LZ0B9JA36H1000613</vin><xxgkh>CN ZC G5 Z2 0402000045 000002</xxgkh><sb>飞碟</sb><sccdz>山东省五莲县潮河镇驻地</sccdz><fdjh>A3016003911</fdjh><scdate>2017-01-11</scdate><ccdate>2017-01-11</ccdate><ccsy>自由加速烟度</ccsy><ccjl>合格</ccjl><gkwww>正在建设中</gkwww><fdjsb>云内</fdjsb><fdjsccdz>昆明市经济技术开发区经景路66号</fdjsccdz></vindata>
-//		  <vindata><vin>LZ0B9JA38H1000614</vin><xxgkh>CN ZC G5 Z2 0402000046 000002</xxgkh><sb>飞碟</sb><sccdz>山东省五莲县潮河镇驻地</sccdz><fdjh>A3016004252</fdjh><scdate>2017-01-11</scdate><ccdate>2017-01-11</ccdate><ccsy>自由加速烟度</ccsy><ccjl>合格</ccjl><gkwww>正在建设中</gkwww><fdjsb>云内</fdjsb><fdjsccdz>昆明市经济技术开发区经景路66号</fdjsccdz></vindata>
+//        <vindata><vin>LZ0B9JA36H1000613</vin><xxgkh>CN ZC G5 Z2 0402000045 000002</xxgkh><sb>飞碟</sb><sccdz>山东省五莲县潮河镇驻地</sccdz><fdjh>A3016003911</fdjh><scdate>2017-01-11</scdate><ccdate>2017-01-11</ccdate><ccsy>自由加速烟度实验</ccsy><ccjl>合格</ccjl><gkwww>正在建设中</gkwww><fdjsb>云内</fdjsb><fdjsccdz>昆明市经济技术开发区经景路66号</fdjsccdz></vindata>
+//		  <vindata><vin>LZ0B9JA38H1000614</vin><xxgkh>CN ZC G5 Z2 0402000046 000002</xxgkh><sb>飞碟</sb><sccdz>山东省五莲县潮河镇驻地</sccdz><fdjh>A3016004252</fdjh><scdate>2017-01-11</scdate><ccdate>2017-01-11</ccdate><ccsy>自由加速烟度实验</ccsy><ccjl>合格</ccjl><gkwww>正在建设中</gkwww><fdjsb>云内</fdjsb><fdjsccdz>昆明市经济技术开发区经景路66号</fdjsccdz></vindata>
 //        </vindatas>
 //        先将EnvirUpload数据对象转换成XML格式
             def  vindata = this.convertData(lst)

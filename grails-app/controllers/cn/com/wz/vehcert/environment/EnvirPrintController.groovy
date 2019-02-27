@@ -477,7 +477,7 @@ class EnvirPrintController extends BaseController {
                         envirUpload.en_qcfl        =heavyDieselInfo?.en_qcfl
 
 //                      增加重型车出厂试验为 自由加速烟度 试验
-                        envirUpload.en_ccsy        ='自由加速烟度'
+                        envirUpload.en_ccsy        ='自由加速烟度实验'
 
                         envirUpload.creater_id        =loginUser.userName
                         envirUpload.create_time       =DateUtil.getCurrentTime()
@@ -589,7 +589,7 @@ class EnvirPrintController extends BaseController {
                     envirUpload.en_qcfl        =heavyGasInfo?.en_qcfl
 
 //                      增加重型车出厂试验为 自由加速烟度 试验
-                    envirUpload.en_ccsy        ='双怠速试验'
+                    envirUpload.en_ccsy        ='自由加速烟度试验'
 
                     envirUpload.creater_id        =loginUser.userName
                     envirUpload.create_time       =DateUtil.getCurrentTime()
