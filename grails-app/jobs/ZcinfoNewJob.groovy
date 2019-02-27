@@ -9,9 +9,10 @@
 class ZcinfoNewJob {
     def grailsApplication
     def newDmsSynService
+    def synService
     static triggers={
   //      cron name:'testTrigger',cronExpression:'0 0/3 * * * ?',startDelay:10l           //每分钟执行一次
-//          cron name:'testTrigger',cronExpression:'0 0 22 * * ?',startDelay:10l         //每天晚上10点更新
+          cron name:'testTrigger',cronExpression:'0 0 22 * * ?',startDelay:10l         //每天晚上10点更新
 //        cron name:'testTrigger',cronExpression:'0 15 13 * * ?',startDelay:10l         //上午8更新
 //        cron name:'cronTrigger', cronExpression:'0 0 1/6 * * ?', startDelay: 10l   //每天凌晨1点开始，每6小时执行一次
 //        cron name:'cronTrigger', cronExpression:'20 30 8 * * ?', startDelay: 10l
@@ -23,6 +24,7 @@ class ZcinfoNewJob {
             newDmsSynService.newSyn()   //定时任务的同步作业
             newDmsSynService.newDelete()   //定时任务的删除作业  /
             newDmsSynService.newUpdateVehicle() //将当天更换的合格证信息传给CRM
+            synService.replaceToSap() //将当天更换的合格证信息传给SAP
         }catch (Exception e){
             e.cause?e.cause.printStackTrace():e.printStackTrace()
         }

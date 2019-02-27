@@ -652,6 +652,7 @@
 //        $('#veh_Clztxx_R').val(data.veh_Clztxx)
         $('#veh_Jss_R').val(data.veh_Jss)      //驾驶室
         $('#veh_VinFourBit_R').val(data.veh_VinFourBit)      //vin第四位
+        $('#upload_Path_R').val(data.upload_Path)      //vin第四位
     }
 
     //汽车VIN计算
@@ -802,18 +803,22 @@
             }
         }
         //防止打底盘合格证时输入整车合格证号段，打整车合格证时输入底盘合格证号段
-        var veh_Zchgzbh = $("#veh_Zchgzbh_R").val()
-        var str =veh_Zchgzbh.substring(7,8);
-        if($("#RadioGroup1").val()==1){
-            if($('#veh_Clztxx_R').val()=='QX'){
-                if(str=='7'){
-                    alert("请输入整车合格证编号");
-                    return;
-                }
-            }else if($('#veh_Clztxx_R').val()=='DP'){
-                if(str=='6'){
-                    alert("请输入底盘合格证编号");
-                    return;
+        var veh_Zchgzbh_R = $("#veh_Zchgzbh_R").val()
+        var str =veh_Zchgzbh_R.substring(7,8);
+        var radios = document.getElementsByName("RadioGroup1");
+        for ( var i = 0; i < radios.length; i++) {
+            if (radios[i].checked==true&&radios[i].value==1) {
+                if($('#veh_Clztxx_R').val()=='QX'){
+                    if(str=='7'){
+                        alert("请输入整车合格证编号");
+                        return;
+                    }
+                }else if($('#veh_Clztxx_R').val()=='DP'){
+                    if(str=='6'){
+                        console.log(str)
+                        alert("请输入底盘合格证编号");
+                        return;
+                    }
                 }
             }
         }
