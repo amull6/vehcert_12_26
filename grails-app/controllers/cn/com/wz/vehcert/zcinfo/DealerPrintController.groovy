@@ -39,6 +39,7 @@ class DealerPrintController extends BaseController{
         DistributorPrintCount distributorPrintCount = DistributorPrintCount.findByVeh_Zchgzbh_0(zcinfoModel.veh_Zchgzbh_0)
         if(distributorPrintCount){
             distributorPrintCount.printCount=distributorPrintCount.printCount+1
+            distributorPrintCount.status='4'
             distributorPrintCount.save(flush: true)
         }
         render (view: "/cn/com/wz/vehcert/zcinfo/dealer/dealerPrint",model: [path:path])

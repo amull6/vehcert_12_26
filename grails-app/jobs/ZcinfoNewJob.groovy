@@ -12,7 +12,7 @@ class ZcinfoNewJob {
     def synService
     static triggers={
   //      cron name:'testTrigger',cronExpression:'0 0/3 * * * ?',startDelay:10l           //每分钟执行一次
-          cron name:'testTrigger',cronExpression:'0 0 22 * * ?',startDelay:10l         //每天晚上10点更新
+//          cron name:'testTrigger',cronExpression:'0 0 22 * * ?',startDelay:10l         //每天晚上10点更新
 //        cron name:'testTrigger',cronExpression:'0 15 13 * * ?',startDelay:10l         //上午8更新
 //        cron name:'cronTrigger', cronExpression:'0 0 1/6 * * ?', startDelay: 10l   //每天凌晨1点开始，每6小时执行一次
 //        cron name:'cronTrigger', cronExpression:'20 30 8 * * ?', startDelay: 10l
