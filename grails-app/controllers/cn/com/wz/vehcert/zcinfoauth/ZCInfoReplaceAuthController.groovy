@@ -526,7 +526,6 @@ class ZCInfoReplaceAuthController extends BaseController {
             map.put("veh_Hzdfs", zcinforeplace?.veh_Hzdfs_R)
             map.put("veh_Jss", zcinforeplace?.veh_Jss_R)                  //驾驶室
             map.put("veh_VinFourBit", zcinforeplace?.veh_VinFourBit_R)    //vin第四位
-            map.put("upload_Path", zcinforeplace?.upload_Path_R)    //pdf存放地址
 
         } else if (params.type == 'DP') {
 //            def hgz = ZCInfo.findByVeh_ClsbdhAndVeh_Clztxx("${params.vin}", "DP")
@@ -645,7 +644,6 @@ class ZCInfoReplaceAuthController extends BaseController {
                 map.put("veh_Hzdfs", replaceDp?.veh_Hzdfs_R)
                 map.put("veh_Jss", replaceDp?.veh_Jss_R)                  //驾驶室
                 map.put("veh_VinFourBit", replaceDp?.veh_VinFourBit_R)    //vin第四位
-                map.put("upload_Path", replaceDp?.upload_Path_R)    //vin第四位
 //            }
         }
         def result = map as JSON
@@ -990,7 +988,6 @@ class ZCInfoReplaceAuthController extends BaseController {
         def dd = params.zcinforeid
         //判定要审核的记录是否存在  (防止底盘信息覆盖整车信息)
         def t = ZCInfoReplace.get(params.zcinforeid)
-        def t1=ReplaceForSupplement.findByZcinfoReplaceId(params.zcinforeid)
         def zcinfoReAuInstance = new ZCInfoReplace()
         zcinfoReAuInstance.properties = t.properties
         zcinfoReAuInstance.id = t.id
@@ -1181,12 +1178,9 @@ class ZCInfoReplaceAuthController extends BaseController {
                     return render(result as JSON)
                 }
             } else { //当整车和底盘都要时，打印底盘时仅保存底盘的状态即可
-                t.veh_DP_status = 1
+                t.veh_coc_status = 1
                 t.authTime = curTime
-                if(t1.properties){
-                    t1.properties = zcinfoReAuInstance.properties
-                }
-                if (!(t.save(flush: true)&&t1.save(flush: true))) {
+                if (!t.save(flush: true)) {
                     trans.setRollbackOnly()
                     msg = "审核记录信息保存失败!"
                     flag = 'failed'
@@ -1224,7 +1218,7 @@ class ZCInfoReplaceAuthController extends BaseController {
 
 
                     } else if (zcinfoReAuInstance.veh_Clztxx_R == "QX") { //整车和底盘都要，打整车时
-                        def old = ZCInfo.findByVeh_ZchgzbhAndVeh_Clztxx("${zcinfoReAuInstance.veh_Zchgzbh}","QX")
+                        def old = ZCInfo.findByVeh_Zchgzbh("${zcinfoReAuInstance.veh_Zchgzbh}")
                         if (old) {
                             File f = new File(grailsApplication.config.upload.rootDir + old.upload_Path)
                             if (f.exists()) {
