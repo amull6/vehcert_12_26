@@ -815,7 +815,6 @@
                     }
                 }else if($('#veh_Clztxx_R').val()=='DP'){
                     if(str=='6'){
-                        console.log(str)
                         alert("请输入底盘合格证编号");
                         return;
                     }
