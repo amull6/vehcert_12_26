@@ -652,7 +652,6 @@
 //        $('#veh_Clztxx_R').val(data.veh_Clztxx)
         $('#veh_Jss_R').val(data.veh_Jss)      //驾驶室
         $('#veh_VinFourBit_R').val(data.veh_VinFourBit)      //vin第四位
-        $('#upload_Path_R').val(data.upload_Path)      //vin第四位
     }
 
     //汽车VIN计算
