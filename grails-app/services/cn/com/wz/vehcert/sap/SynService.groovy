@@ -1430,11 +1430,10 @@ class SynService {
             eq('veh_coc_status',1)        //审核状态为通过
 //              eq('veh_Clztxx_R','QX')
 //              eq('veh_Clztxx_R','QX')       //传输变更记录只要整车换整车的记录
-            or{
 //                  int transToCrm=0   //0表示要传给CRM，1禁止传给CRM  ，2传给CRM成功，3传给CRM失败
-                eq('transToSap',0)
+            eq('transToSap',0)
 //                eq('transToSap',1) //将未传输的或者传输失败，注意不是禁止传输的，筛选出来
-            }
+            eq('transToCrm',2)
             isNotNull('veh_Zchgzbh_0_R')  //更换后的整车合格证编号不为空
             isNotNull('SAP_No')           //更换后的SAP序列号不能为空（新DMS打开）
             eq('formal','0')
