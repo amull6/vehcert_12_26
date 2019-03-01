@@ -39,20 +39,42 @@ class PreCarStorageController extends BaseController{
      * @Params searchFlag=searchByClxh根据车辆型号查询；searchFlag=searchByDpxh根据车辆底盘型号查询
      * @return
      */
-    def search(){
+//    def search(){
+//        def cartStorage=null
+//        if ("searchByClxh".equals(params.searchFlag)){
+//           cartStorage=PreCarStorage.findByVeh_Clxh(params.veh_Clxh)
+//        }else if ("searchByDpxh".equals(params.searchFlag)){
+//            def cel={
+//                eq('veh_Dpxh',"${params.veh_Dpxh}")
+//                isNull('veh_Clxh')
+//            }
+//            def list=PreCarStorage.createCriteria().list(cel)
+//            if (list && list.size()>0){
+//                cartStorage=list.get(0)
+//            }
+//        }
+//        render (view:'/cn/com/wz/vehcert/precarstorage/generateCartStorage',model: [cartStorage:cartStorage])
+//    }
+    /**
+     * @Description 根据车辆型号底盘型号联合查询合格证信息
+     * @return
+     */
+    def searchByClxhAndDpxh(){
+        def clxh
+        def dpxh
         def cartStorage=null
-        if ("searchByClxh".equals(params.searchFlag)){
-           cartStorage=PreCarStorage.findByVeh_Clxh(params.veh_Clxh)
-        }else if ("searchByDpxh".equals(params.searchFlag)){
-            def cel={
-                eq('veh_Dpxh',"${params.veh_Dpxh}")
-                isNull('veh_Clxh')
-            }
-            def list=PreCarStorage.createCriteria().list(cel)
-            if (list && list.size()>0){
-                cartStorage=list.get(0)
-            }
+        def aa=params
+        if(params.veh_Clxh==''){
+            clxh=null
+        }else{
+            clxh=params.veh_Clxh
         }
+        if(params.veh_Dpxh==''){
+            dpxh=null
+        }else{
+            dpxh=params.veh_Dpxh
+        }
+        cartStorage=PreCarStorage.findByVeh_ClxhAndVeh_Dpxh(clxh,dpxh)
         render (view:'/cn/com/wz/vehcert/precarstorage/generateCartStorage',model: [cartStorage:cartStorage])
     }
     /**
@@ -643,6 +665,17 @@ class PreCarStorageController extends BaseController{
     def showSingle(){
         def  preCarStorage=PreCarStorage.get(params.id)
         render (view:'/cn/com/wz/vehcert/precarstorage/singlePre',model:[preCarStorage:preCarStorage] );
+    }
+    /**
+     *@Description 跳转到公告生成页面
+     *@param
+     *@return
+     *@Auther QJ
+     *@createTime 2019-03-01
+     */
+    def editPre(){
+        def  preCarStorage=PreCarStorage.get(params.id)
+        render (view:'/cn/com/wz/vehcert/precarstorage/generateCartStorage',model: [cartStorage:preCarStorage])
     }
    def exportpdf(){
     try {

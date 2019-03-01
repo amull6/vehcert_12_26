@@ -78,10 +78,12 @@
                 </div></td>
             </tr>
             <tr>
-                <td align="left"><div style="text-align: left; " class="om-resizable">车辆型号</div></td>
-                <td align="left" abbr="city" class="col1"><div align="left" class="innerCol ">
-                    <input id="veh_Clxh" name="veh_Clxh" value="${cartStorage?.veh_Clxh}" type="text" size="20"/>
-                    <a id="btn_searchByClxh" class="btn_basic blue_black" href="javascript:void(0)">查询</a>
+                <td align="left" ><div style="text-align: left; " class="om-resizable">车辆型号</div></td>
+                <td align="left" abbr="city" class="col1" rowspan="2" ><div align="left" class="innerCol ">
+                    <input id="veh_Clxh" name="veh_Clxh" value="${cartStorage?.veh_Clxh}" type="text" size="20"/><br/>
+                    <input id="veh_Dpxh" name="veh_Dpxh" type="text" value="${cartStorage?.veh_Dpxh}" size="20"/>
+                    %{--<a id="btn_searchByClxh" class="btn_basic blue_black" href="javascript:void(0)">查询</a>--}%
+                    <a id="btn_search" class="btn_basic blue_black" href="javascript:void(0)">查询</a>
                 </div></td>
 
                 <td align="left"><div style="text-align: left; " class="om-resizable">车身颜色</div></td>
@@ -91,10 +93,10 @@
             </tr>
             <tr>
                 <td align="left"><div style="text-align: left; " class="om-resizable">底盘型号</div></td>
-                <td align="left" abbr="city" class="col1"><div align="left" class="innerCol ">
-                    <input id="veh_Dpxh" name="veh_Dpxh" type="text" value="${cartStorage?.veh_Dpxh}" size="20"/>
-                    <a id="btn_searchByDpxh" class="btn_basic blue_black" href="javascript:void(0)">查询</a>
-                </div></td>
+                %{--<td align="left" abbr="city" class="col1"><div align="left" class="innerCol ">--}%
+                    %{--<input id="veh_Dpxh" name="veh_Dpxh" type="text" value="${cartStorage?.veh_Dpxh}" size="20"/>--}%
+                    %{--<a id="btn_searchByDpxh" class="btn_basic blue_black" href="javascript:void(0)">查询</a>--}%
+                %{--</div></td>--}%
 
                 <td align="left"><div style="text-align: left; " class="om-resizable">底盘ID</div></td>
                 <td align="left" abbr="city" class="col1"><div align="left" class="innerCol ">
@@ -437,16 +439,21 @@
             var url='${createLink(controller:'preCarStorage',action:'importPage')}';
             showModelDialog(url);
         });
-        $("#btn_searchByClxh").click(function(){
-            var url="${createLink(controller:'preCarStorage',action:'search')}?searchFlag=searchByClxh";
+        $("#btn_search").click(function(){
+            var url="${createLink(controller:'preCarStorage',action:'searchByClxhAndDpxh')}";
             $("#form").attr("action",url);
             $("#form").submit();
         });
-        $("#btn_searchByDpxh").click(function(){
-            var url="${createLink(controller:'preCarStorage',action:'search')}?searchFlag=searchByDpxh";
-            $("#form").attr("action",url);
-            $("#form").submit();
-        });
+        %{--$("#btn_searchByClxh").click(function(){--}%
+            %{--var url="${createLink(controller:'preCarStorage',action:'search')}?searchFlag=searchByClxh";--}%
+            %{--$("#form").attr("action",url);--}%
+            %{--$("#form").submit();--}%
+        %{--});--}%
+        %{--$("#btn_searchByDpxh").click(function(){--}%
+            %{--var url="${createLink(controller:'preCarStorage',action:'search')}?searchFlag=searchByDpxh";--}%
+            %{--$("#form").attr("action",url);--}%
+            %{--$("#form").submit();--}%
+        %{--});--}%
     });
 
     //获取组合结果

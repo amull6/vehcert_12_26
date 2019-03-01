@@ -149,6 +149,11 @@
         var url = '${createLink(controller:'preCarStorage',action:'showSingle')}';
         window.location.href = url+'/'+data.id;
     }
+    function editPre(index){
+        var data = $("#carStorage_grid").omGrid("getData").rows[index];
+        var url = '${createLink(controller:'preCarStorage',action:'editPre')}';
+        window.location.href = url+'/'+data.id;
+    }
     function buildRightGrid(value,event){
         $('#carStorage_grid').omGrid({
             dataSource:"${createLink(controller:'PreCarStorage',action:'jsonListByDownload')}",
@@ -160,10 +165,11 @@
             height : 500,
             width:'fit',
             colModel:[
-                {header : "${message(code: 'carstorage.search.label')}", width : 60, align : 'center',name : 'search',
+                {header : "${message(code: 'carstorage.operate.label')}", width : 100, align : 'center',name : 'search',
                     renderer:function(value,rowData,rowIndex){
                         var data = rowData;
-                        return   '<a id="btn_view" class="btn_basic blue_black"  href="javascript:viewDetail('+rowIndex+');">查看</a>';
+                        return   '<a id="btn_view" class="btn_basic blue_black"  href="javascript:viewDetail('+rowIndex+');">查看</a>'+'&nbsp&nbsp'+
+                            '<a id="btn_edit" class="btn_basic blue_black"  href="javascript:editPre('+rowIndex+');">编辑</a>';
                     }},
                 {header : "${message(code: 'carstorage.veh_Clzzqymc.label')}", width : 150, align : 'center',name : 'veh_Clzzqymc'},
                 {header : "${message(code: 'carstorage.veh_Qyid.label')}", width : 80, align : 'center',name : 'veh_Qyid'},
