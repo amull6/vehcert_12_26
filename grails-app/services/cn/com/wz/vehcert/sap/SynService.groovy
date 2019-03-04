@@ -1453,7 +1453,7 @@ class SynService {
             tranfList.each{zcInfoReplace->
                 this.synZcinfoReplace(zcInfoReplace)
             }
-            new SynDelivery(tranfList,logService)
+//            new SynDelivery(tranfList,logService)
         }
     }
 }
