@@ -52,8 +52,10 @@ class SynchroController extends BaseController {
             def lightDualResult=sqlToolService.synLightDual(ora_con,sql_con)
             def lightDieselResult=sqlToolService.synLightDiesel(ora_con,sql_con)
             def heavyGasResult=sqlToolService.synHeavyGas(ora_con,sql_con)
+            def LightPetrolGb6Result=sqlToolService.synLightPetrolGb6(ora_con,sql_con)
+            def NewEnergyCarResult=sqlToolService.synNewEnergyCar(ora_con,sql_con)
             totalTime=(System.currentTimeMillis()-statrTime)/1000
-            msg="重型柴油/城市汽车环保信息同步条数：${heavyDieselResult.totalCount} 双燃料/轻型汽油车辆环保信息同步条数：${lightDualResult.totalCount} 轻型柴油国四/国五环保信息同步条数：${lightDieselResult.totalCount} 重型燃气环保信息同步条数：${heavyGasResult.totalCount} 耗时: "+totalTime+"S</br>"+"</br>结果: <font color='green'>同步成功!</font>"
+            msg="重型柴油/城市汽车环保信息同步条数：${heavyDieselResult.totalCount} 双燃料/轻型汽油车辆环保信息同步条数：${lightDualResult.totalCount} 轻型柴油国四/国五环保信息同步条数：${lightDieselResult.totalCount} 重型燃气环保信息同步条数：${LightPetrolGb6Result.totalCount} 轻型汽油车（国六）环保信息同步条数：${heavyGasResult.totalCount} 新能源汽车环保信息同步条数：${NewEnergyCarResult.totalCount} 耗时: "+totalTime+"S</br>"+"</br>结果: <font color='green'>同步成功!</font>"
 //
         }catch (Exception e){
             e.cause?.printStackTrace();

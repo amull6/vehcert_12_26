@@ -274,6 +274,106 @@ class SqlToolService{
         return [totalCount:totalCount,totalTime:totalTime]
     }
     /**
+     * @Description 同步轻型汽油国六环保信息库
+     * @param oracle_db
+     * @param sql_db
+     * @param
+     * @Create 2019-03-05 Qj
+     * @Update
+     */
+    def synLightPetrolGb6(Sql oracle_db,Sql sql_db){
+        def totalTime=0
+
+        //获取服务器中的分解前的公告数据库，这是1.25端的数据
+        def selectSql="select * from WZH_LIGHT_PETROL_GB6"
+        def list=oracle_db.rows(selectSql)
+
+        //删除本地数据库
+        def deletesql="delete from WZH_LIGHT_PETROL_GB6"
+        def result=sql_db.execute(deletesql)
+
+        List<String> sql_options = new ArrayList<String>();
+        def count=0
+        def totalCount=list?.size()
+        def allCount=0
+        list?.each{ p->
+            allCount+=1
+            count+=1
+            StringBuffer sb=new StringBuffer("insert into WZH_LIGHT_PETROL_GB6")
+            StringBuffer title=new StringBuffer(" (id")
+            StringBuffer values=new StringBuffer(" values('${p.ID}'")
+            p.entrySet().each{v->
+                if (!"ID".equals(v.key)){
+                    title.append(",${v.key}")
+                    values.append(",'${v.value?v.value:''}'")
+                }
+            }
+            title.append(")")
+            values.append(")")
+            sb.append(title)
+            sb.append(values)
+            sql_options.add(sb)
+
+            if (allCount==totalCount){
+                def time =  this.SynchronizationData (sql_db,sql_options,500);
+                count = 0
+                sql_options.clear()
+                totalTime = totalTime+time;
+            }
+        }
+        return [totalCount:totalCount,totalTime:totalTime]
+    }
+    /**
+     * @Description 同步新能源汽车环保信息库
+     * @param oracle_db
+     * @param sql_db
+     * @param
+     * @Create 2019-03-05 Qj
+     * @Update
+     */
+    def synNewEnergyCar(Sql oracle_db,Sql sql_db){
+        def totalTime=0
+
+        //获取服务器中的分解前的公告数据库，这是1.25端的数据
+        def selectSql="select * from WZH_NEW_ENERGY_CAR"
+        def list=oracle_db.rows(selectSql)
+
+        //删除本地数据库
+        def deletesql="delete from WZH_NEW_ENERGY_CAR"
+        def result=sql_db.execute(deletesql)
+
+        List<String> sql_options = new ArrayList<String>();
+        def count=0
+        def totalCount=list?.size()
+        def allCount=0
+        list?.each{ p->
+            allCount+=1
+            count+=1
+            StringBuffer sb=new StringBuffer("insert into WZH_NEW_ENERGY_CAR")
+            StringBuffer title=new StringBuffer(" (id")
+            StringBuffer values=new StringBuffer(" values('${p.ID}'")
+            p.entrySet().each{v->
+                if (!"ID".equals(v.key)){
+                    title.append(",${v.key}")
+                    values.append(",'${v.value?v.value:''}'")
+                }
+            }
+            title.append(")")
+            values.append(")")
+            sb.append(title)
+            sb.append(values)
+            sql_options.add(sb)
+
+            if (allCount==totalCount){
+                def time =  this.SynchronizationData (sql_db,sql_options,500);
+                count = 0
+                sql_options.clear()
+                totalTime = totalTime+time;
+            }
+        }
+        return [totalCount:totalCount,totalTime:totalTime]
+    }
+    /**
      * @Description 同步生成前的公告库
      * @param oracle_db
      * @param sql_db
