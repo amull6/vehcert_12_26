@@ -222,7 +222,7 @@ class LightPetrolGb6Controller extends BaseController{
                         "en_tc":"涂层/载体/封装生产厂",
                         "en_klbjqxh ":"颗粒捕集器型号",
                         "en_tc1":"涂层/载体/封装生产厂1",
-                        "en_tgxh":"碳罐型号",
+                        "en_tgxh":"炭罐型号",
                         "en_ycgqxh":"氧传感器型号",
                         "en_qzxpfkzzzxh":"曲轴箱排放控制装置型号",
                         "en_egrxh":"EGR型号",

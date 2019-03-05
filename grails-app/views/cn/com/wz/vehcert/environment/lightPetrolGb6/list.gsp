@@ -212,7 +212,7 @@
                 {header : "涂层/载体/封装生产厂", name : 'en_tc', width : 250, align : 'center'},
                 {header : "颗粒捕集器型号", name : 'en_klbjqxh ', width : 250, align : 'center'},
                 {header : "涂层/载体/封装生产厂1", name : 'en_tc1', width : 250, align : 'center'},
-                {header : "碳罐型号", name : 'en_tgxh', width : 250, align : 'center'},
+                {header : "炭罐型号", name : 'en_tgxh', width : 250, align : 'center'},
                 {header : "氧传感器型号", name : 'en_ycgqxh', width : 250, align : 'center'} ,
                 {header : "曲轴箱排放控制装置型号", name : 'en_qzxpfkzzzxh', width : 250, align : 'center'},
                 {header : "EGR型号", name : 'en_egrxh', width : 250, align : 'center'},

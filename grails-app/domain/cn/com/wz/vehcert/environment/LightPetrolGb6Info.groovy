@@ -28,7 +28,7 @@ class LightPetrolGb6Info {
     String en_qzxpfkzzzxh      //曲轴箱排放控制装置型号
     String en_egrxh       //EGR型号
     String en_obdxh       //OBD型号
-    String en_tgxh       //碳罐型号
+    String en_tgxh       //炭罐型号
     String en_ecuxh       //ECU型号
     String en_bsqxs   //变速器型式
     String en_xyqxh   //消音器型号
@@ -73,7 +73,7 @@ class LightPetrolGb6Info {
         en_qzxpfkzzzxh (nullable: true)    //曲轴箱排放控制装置型号
         en_egrxh (nullable: true)      //EGR型号
         en_obdxh (nullable: true)      //OBD型号
-        en_tgxh (nullable: true)      //碳罐型号
+        en_tgxh (nullable: true)      //炭罐型号
         en_ecuxh (nullable: true)       //ECU型号
         en_bsqxs (nullable: true)   //变速器型式
         en_xyqxh (nullable: true)  //消音器型号
@@ -118,7 +118,7 @@ class LightPetrolGb6Info {
         en_qzxpfkzzzxh (comment:'曲轴箱排放控制装置型号')    //曲轴箱排放控制装置型号
         en_egrxh (comment:'EGR型号')      //EGR型号
         en_obdxh (comment:'OBD型号')      //OBD型号
-        en_tgxh (comment:'碳罐型号')      //碳罐型号
+        en_tgxh (comment:'炭罐型号')      //炭罐型号
         en_ecuxh (comment:'ECU型号')       //ECU型号
         en_bsqxs (comment:'变速器型式')   //变速器型式
         en_xyqxh (comment:'消音器型号')  //消音器型号
