@@ -97,7 +97,7 @@
         <input name="en_tc1" type="text" value="${lightPetrolGb6?.en_tc1}" style="width:300px;"/>
     </div></td>
 
-    <td align="left"><div style="text-align: left; " class="om-resizable">碳罐型号/生产企业</div></td>
+    <td align="left"><div style="text-align: left; " class="om-resizable">炭罐型号/生产企业</div></td>
     <td align="left" abbr="city" class="col1"><div align="left" class="innerCol ">
         <input name="en_tgxh" type="text" value="${lightPetrolGb6?.en_tgxh}" style="width:300px;"/>
     </div></td>
