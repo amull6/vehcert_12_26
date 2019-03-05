@@ -318,7 +318,13 @@ class ZcInfoReplaceService {
             def otherGgpc =zciInfoModelOther.veh_Ggpc
             PreCarStorage otherPreCarStorge = new PreCarStorage()
             if("QX".equals(params.veh_Clztxx)){
-                preCarStorage=PreCarStorage.findByVeh_Clxh(params.veh_Clxh)
+                def dpxh
+                if(params.veh_Dpxh==''){
+                    dpxh=null
+                }else{
+                    dpxh=params.veh_Dpxh
+                }
+                preCarStorage=PreCarStorage.findByVeh_ClxhAndVeh_Dpxh(params.veh_Clxh,dpxh)
                 otherPreCarStorge=PreCarStorage.findByVeh_DpidAndVeh_Clztxx(zciInfoModelOther.veh_Dpid,'DP')
                 if (!preCarStorage){
                     sb.append("整车合格证车辆型号与公告库不符！")
@@ -348,7 +354,13 @@ class ZcInfoReplaceService {
                 }
             }else if ("DP".equals(params.veh_Clztxx)){
                 preCarStorage=PreCarStorage.findByVeh_DpidAndVeh_Clztxx(params.veh_Dpid,'DP')
-                otherPreCarStorge=PreCarStorage.findByVeh_Clxh(zciInfoModelOther.veh_Clxh)
+                def dpxh
+                if(zciInfoModelOther.veh_Dpxh==''){
+                    dpxh=null
+                }else{
+                    dpxh=zciInfoModelOther.veh_Dpxh
+                }
+                otherPreCarStorge=PreCarStorage.findByVeh_ClxhAndVeh_Dpxh(zcinfo.veh_Clxh,dpxh)
                 if (!preCarStorage){
                     sb.append("底盘合格证车辆型号与公告库不符！")
                 }else{
@@ -382,7 +394,13 @@ class ZcInfoReplaceService {
         }else{
             //获取分解前的公告信息
             if ("QX".equals(params.veh_Clztxx)){
-                preCarStorage=PreCarStorage.findByVeh_Clxh(params.veh_Clxh)
+                def dpxh
+                if(params.veh_Dpxh==''){
+                    dpxh=null
+                }else{
+                    dpxh=params.veh_Dpxh
+                }
+                preCarStorage=PreCarStorage.findByVeh_ClxhAndVeh_Dpxh(params.veh_Clxh,dpxh)
             }else if ("DP".equals(params.veh_Clztxx)){
                 preCarStorage=PreCarStorage.findByVeh_DpidAndVeh_Clztxx(params.veh_Dpid,'DP')
             }else{

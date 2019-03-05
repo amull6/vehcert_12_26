@@ -2025,8 +2025,14 @@ class ZcInfoService {
         StringBuffer sb=new StringBuffer()
         //获取分解前的公告信息
         PreCarStorage preCarStorage=new PreCarStorage()
+        def dpxh
         if ("QX".equals(zcinfo.veh_Clztxx)){
-            preCarStorage=PreCarStorage.findByVeh_Clxh(zcinfo.veh_Clxh)
+            if(zcinfo.veh_Dpxh==''){
+                dpxh=null
+            }else{
+                dpxh=zcinfo.veh_Dpxh
+            }
+            preCarStorage=PreCarStorage.findByVeh_ClxhAndVeh_Dpxh(zcinfo.veh_Clxh,dpxh)
         }else if ("DP".equals(zcinfo.veh_Clztxx)){
             preCarStorage=PreCarStorage.findByVeh_DpidAndVeh_Clztxx(zcinfo.veh_Dpid,'DP')
         }else{
@@ -2417,8 +2423,14 @@ class ZcInfoService {
         StringBuffer sb=new StringBuffer()
         //获取分解前的公告信息
         PreCarStorage preCarStorage=new PreCarStorage()
+        def dpxh
         if ("QX".equals(zcinfo.veh_Clztxx)){
-            preCarStorage=PreCarStorage.findByVeh_Clxh(zcinfo.veh_Clxh)
+            if(zcinfo.veh_Dpxh==''){
+                dpxh=null
+            }else{
+                dpxh=zcinfo.veh_Dpxh
+            }
+            preCarStorage=PreCarStorage.findByVeh_ClxhAndVeh_Dpxh(zcinfo.veh_Clxh,dpxh)
         }else if ("DP".equals(zcinfo.veh_Clztxx)){
             preCarStorage=PreCarStorage.findByVeh_DpidAndVeh_Clztxx(zcinfo.veh_Dpid,'DP')
         }else{
@@ -2805,8 +2817,14 @@ class ZcInfoService {
         PreCarStorage preCarStorage=new PreCarStorage()
 
         //获取分解前的公告信息
+        def dpxh
         if ("QX".equals(zcinfo.veh_Clztxx)){
-            preCarStorage=PreCarStorage.findByVeh_Clxh(zcinfo.veh_Clxh)
+            if(zcinfo.veh_Dpxh==''){
+                dpxh=null
+            }else{
+                dpxh=zcinfo.veh_Dpxh
+            }
+            preCarStorage=PreCarStorage.findByVeh_ClxhAndVeh_Dpxh(zcinfo.veh_Clxh,dpxh)
         }else if ("DP".equals(zcinfo.veh_Clztxx)){
             preCarStorage=PreCarStorage.findByVeh_DpidAndVeh_Clztxx(zcinfo.veh_Dpid,'DP')
         }else{
@@ -2840,8 +2858,14 @@ class ZcInfoService {
         PreCarStorage preCarStorage=new PreCarStorage()
 
         //获取分解前的公告信息
+        def dpxh
         if ("QX".equals(zcinfo.veh_Clztxx)){
-            preCarStorage=PreCarStorage.findByVeh_Clxh(zcinfo.veh_Clxh)
+            if(zcinfo.veh_Dpxh==''){
+                dpxh=null
+            }else{
+                dpxh=zcinfo.veh_Dpxh
+            }
+            preCarStorage=PreCarStorage.findByVeh_ClxhAndVeh_Dpxh(zcinfo.veh_Clxh,dpxh)
         }else if ("DP".equals(zcinfo.veh_Clztxx)){
             preCarStorage=PreCarStorage.findByVeh_DpidAndVeh_Clztxx(zcinfo.veh_Dpid,'DP')
         }

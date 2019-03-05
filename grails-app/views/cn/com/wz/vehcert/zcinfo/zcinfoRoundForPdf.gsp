@@ -360,6 +360,7 @@
             var statusWrite =$('#statusWrite').val();
             var turnOff=$('#turnOff').val();
             var veh_Clxh=$('#clxh').val();
+            var veh_Dpxh=$('#dpxh').val();
             var veh_Ggpc=$('#ggpc').val();
             var veh_Clztxx=$('#veh_Clztxx_R').val();
             var veh_Dpid=$('#dpid').val();
@@ -367,7 +368,7 @@
                 alert('整车和底盘都更换正时合格证，请用整车合格证申请')
                 return
             }
-            $.post("${createLink(controller: 'ZCInfoReplaceAuth',action:'checkGgpc')}",{veh_Clxh:veh_Clxh,veh_Ggpc:veh_Ggpc,veh_Clztxx:veh_Clztxx,veh_Dpid:veh_Dpid,otherid:otherid,isAll:isAll},function(dd,textStatus){
+            $.post("${createLink(controller: 'ZCInfoReplaceAuth',action:'checkGgpc')}",{veh_Clxh:veh_Clxh,veh_Dpxh:veh_Dpxh,veh_Ggpc:veh_Ggpc,veh_Clztxx:veh_Clztxx,veh_Dpid:veh_Dpid,otherid:otherid,isAll:isAll},function(dd,textStatus){
                 var d2=eval(dd);
                 if(d2.flag=='failed'){
                     alert(d2.msg);
