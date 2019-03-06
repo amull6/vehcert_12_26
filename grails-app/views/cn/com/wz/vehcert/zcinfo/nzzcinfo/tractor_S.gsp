@@ -37,6 +37,7 @@
                 <g:hiddenField name="car_storage_type" id='car_storage_type' value="${NZInfoInstance.car_storage_type}"/>
                 <g:hiddenField name="infoid" value="${NZInfoInstance.id}"/>
                 <g:hiddenField name="isupload" value="${NZInfoInstance.upload }"/>
+                <input name="is_Exp" id='is_Exp' value="${NZInfoInstance.is_Exp}"/>
                 <div class="om-grid om-widget om-widget-content" style="height: 100%;">
                     <div class="bDiv" style="width: auto; height:100%">
                         <table id="grid" style="width: 80%" cellpadding="0" cellspacing="0" border="0">
@@ -640,6 +641,112 @@
     </tr>
 </table>
 </div>
+<div style="margin-top:0px;margin-left: 5px;display: none" class="printExp" id='printExp'>
+    <style>
+    #customers
+    {   font-family:Microsoft Yahei;
+        font-size:13px;
+        border-collapse:collapse;
+        border:1px solid black;
+    }
+    </style>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <table id="customersExp">
+    <tr>
+        <td style="font-size:1em; border:1px solid black;padding:3px 7px 2px 7px;width:200px;height:30px" >1．Certificate No. 合格证编号</td>
+        <td style="font-size:1em; border:1px solid black;padding:3px 7px 2px 7px;width:500px;height:30px"align="center" >${NZInfoInstance?.veh_Hgzbh}</td>
+    </tr>
+    <tr>
+        <td style="font-size:1em; border:1px solid black;padding:3px 7px 2px 7px;width:200px;height:30px" >2．Lssue date 发证日期</td>
+        <td style="font-size:1em; border:1px solid black;padding:3px 7px 2px 7px;width:500px;height:30px"align="center"> ${NZInfoInstance?.veh_Fzrq}</td>
+    </tr>
+    <tr>
+        <td style="font-size:1em; border:1px solid black;padding:3px 7px 2px 7px;width:200px;height:30px" >3．Manufacturer 生产企业名称</td>
+        <td style="font-size:1em; border:1px solid black;padding:3px 7px 2px 7px;width:500px;height:30px"align="center" >${NZInfoInstance?.veh_Scqymc}</td>
+    </tr>
+    <tr>
+        <td style="font-size:1em; border:1px solid black;padding:3px 7px 2px 7px;width:200px;height:30px" >4．Brand 品牌</td>
+        <td style="font-size:1em; border:1px solid black;padding:3px 7px 2px 7px;width:500px;height:30px"align="center" >${NZInfoInstance?.veh_Pp}</td>
+    </tr>
+    <tr>
+        <td style="font-size:1em; border:1px solid black;padding:3px 7px 2px 7px;width:200px;height:30px" >5．Type 类型</td>
+        <td style="font-size:1em; border:1px solid black;padding:3px 7px 2px 7px;width:500px;height:30px"align="center" >${NZInfoInstance?.veh_Lx}</td>
+    </tr>
+    <tr>
+        <td style="font-size:1em; border:1px solid black;padding:3px 7px 2px 7px;width:200px;height:30px" >6．Model 型号名称</td>
+        <td style="font-size:1em; border:1px solid black;padding:3px 7px 2px 7px;width:500px;height:30px"align="center" >${NZInfoInstance?.veh_Cx}</td>
+    </tr>
+    <tr>
+        <td style="font-size:1em; border:1px solid black;padding:3px 7px 2px 7px;width:200px;height:30px" >7．Engine model 发动机型号</td>
+        <td style="font-size:1em; border:1px solid black;padding:3px 7px 2px 7px;width:500px;height:30px"align="center" >${NZInfoInstance?.veh_Fdjxh}</td>
+    </tr>
+    <tr>
+        <td style="font-size:1em; border:1px solid black;padding:3px 7px 2px 7px;width:200px;height:30px" >8．Engine No. 发动机号码</td>
+        <td style="font-size:1em; border:1px solid black;padding:3px 7px 2px 7px;width:500px;height:30px"align="center" >${NZInfoInstance?.veh_Fdjh}</td>
+    </tr>
+    <tr>
+        <td style="font-size:1em; border:1px solid black;padding:3px 7px 2px 7px;width:200px;height:30px" >9．Power 功率/kW</td>
+        <td style="font-size:1em; border:1px solid black;padding:3px 7px 2px 7px;width:500px;height:30px"align="center" >${NZInfoInstance?.veh_Gl}</td>
+    </tr>
+    <tr>
+        <td style="font-size:1em; border:1px solid black;padding:3px 7px 2px 7px;width:200px;height:30px" >10．Fuel 燃油类型</td>
+        <td style="font-size:1em; border:1px solid black;padding:3px 7px 2px 7px;width:500px;height:30px"align="center" >
+            <g:if test='${NZInfoInstance?.veh_Rllx=='0'}'>
+                Diesel
+            </g:if>
+            <g:elseif test='${NZInfoInstance?.veh_Rllx=='1'}'>
+                Petrol
+            </g:elseif>
+            <g:elseif test='${NZInfoInstance?.veh_Rllx=='2'}'>
+                Gas
+            </g:elseif>
+            <g:else>
+                Other
+            </g:else>
+        </td>
+    </tr>
+    <tr>
+        <td style="font-size:1em; border:1px solid black;padding:3px 7px 2px 7px;width:200px;height:30px" >11．Emission Standard 排放标准号及排放阶段</td>
+        <td colspan="3"style="font-size:1em; border:1px solid black;padding:3px 7px 2px 7px;width:500px;height:30px"align="center" >${NZInfoInstance?.veh_Pfbz}</td>
+    </tr>
+    <tr>
+        <td style="font-size:1em; border:1px solid black;padding:3px 7px 2px 7px;width:200px;height:30px" >12．Factory 's serial No. 出厂编号</td>
+        <td colspan="3"style="font-size:1em; border:1px solid black;padding:3px 7px 2px 7px;width:500px;height:30px"align="center" >${NZInfoInstance?.veh_new_clbh}</td>
+    </tr>
+    <tr>
+        <td style="font-size:1em; border:1px solid black;padding:3px 7px 2px 7px;width:200px;height:30px" >
+            <g:if test="${type=='tractor_A'||type=='tractor_B'||type=='tractor_C'}">
+                13．Chassis No. 底盘号
+            </g:if>
+            <g:else>
+                13．Chassis No. 底盘号
+            </g:else>
+        </td>
+        <td style="font-size:1em; border:1px solid black;padding:3px 7px 2px 7px;width:500px;height:30px"align="center" >${NZInfoInstance?.veh_Dph}</td>
+    </tr>
+    <tr>
+        <td style="font-size:1em; border:1px solid black;padding:3px 7px 2px 7px;width:200px;height:30px" >14．Steering type 转向操纵方式</td>
+        <td style="font-size:1em; border:1px solid black;padding:3px 7px 2px 7px;width:500px;height:30px"align="center" >${NZInfoInstance?.veh_Zxczxs}</td>
+    </tr>
+    <tr>
+        <td style="font-size:1em; border:1px solid black;padding:3px 7px 2px 7px;width:200px;height:30px" >15．Person in Cab 准乘人数</td>
+        <td style="font-size:1em; border:1px solid black;padding:3px 7px 2px 7px;width:500px;height:30px"align="center" >${NZInfoInstance?.veh_Zcrs}</td>
+    </tr>
+    <tr>
+        <td style="font-size:1em; border:1px solid black;padding:3px 7px 2px 7px;width:200px;height:30px" >16．Date 生产日期</td>
+        <td style="font-size:1em; border:1px solid black;padding:3px 7px 2px 7px;width:500px;height:30px"align="center" >${NZInfoInstance?.veh_Ccrq}</td>
+    </tr>
+    <tr>
+        <td COLSPAN="4" style="font-size:1em; border:1px solid black;padding:3px 7px 2px 7px;width:700px;height:33px" >17．Standard 执行标准</br> &nbsp;&nbsp;It is hereby certified that this product has passed factory inspection and meets the requirements of 本产品经过出厂检验，符合 <span style="text-decoration: underline;"> ${NZInfoInstance?.veh_Zxbz}</span> ，allowed the factory 准予出厂。</td>
+    </tr>
+    <tr rowspan="4">
+        <td colspan="4"  valign="top" style="font-size:1em;  border:1px solid black;padding:2px 7px 2px 7px;width:700px;height:267px" >
+            <a>18．Manufacturer's Information 企业信息</a> </br>
+            <a>Address 生产企业地址：${NZInfoInstance?.veh_Scqydz}</a> </br>
+            <a>Tel 联系方式：${NZInfoInstance?.veh_Lxfs}</a> </br>
+        </td>
+    </tr>
+</table>
+</div>
 %{--###################################打印显示的页面END#####################################--}%
 
 <script>
@@ -800,7 +907,12 @@
         });
         $('#btn_print').click(function(){
             var isupload=  $('#isupload').val();
-            var d=document.getElementById('print');
+            var is_Exp=  $('#is_Exp').val();
+            if(is_Exp=='1'){
+                var d=document.getElementById('printExp');
+            }else{
+                var d=document.getElementById('print');
+            }
             d.style.display ="block";
             if(isupload=='1'){
                 alert('合格证已上传,不允许打印')
@@ -809,7 +921,11 @@
             var infoid=$('#infoid').val();
             if(infoid!=null&&infoid!=''){  //先调用虚拟 再调用正式
                 window.print();
-                var d=document.getElementById('print');
+                if(is_Exp=='1'){
+                    var d=document.getElementById('printExp');
+                }else{
+                    var d=document.getElementById('print');
+                }
                 d.style.display ="none";
                 printAll();
             }else{
@@ -890,6 +1006,7 @@
         $('#veh_Zxbz').val(data.veh_Zxbz)
         $('#veh_Zdyyzzl').val(data.veh_Zdyyzzl)
         $('#typeFlag').val(data.car_storage_type)
+        $('#is_Exp').val(data.is_Exp)
     }
     function calculateVin(){
         var url = '${createLink(controller:'NZInfo',action:'calculateVIN')}';
