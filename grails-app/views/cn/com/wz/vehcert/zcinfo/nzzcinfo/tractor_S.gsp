@@ -897,10 +897,10 @@
         var veh_Pp= $('#veh_Pp').val().trim();
         var creditCode
         var veh_Qydm
-        if(veh_Pp=='TS牌'){
+        if(veh_Pp=='TS牌'||veh_Pp=='TS Brand TS牌'){
             creditCode ='913708827953187247'
             veh_Qydm ='H36'
-        }else if(veh_Pp=='五征牌'){
+        }else if(veh_Pp=='五征牌'||veh_Pp=='WUZHENG Brand 五征牌'){
             creditCode ='91371121165881395X'
             veh_Qydm ='576'
         }else{
