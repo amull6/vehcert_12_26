@@ -145,8 +145,8 @@ class NZInfoController extends BaseController {
                 eq("car_storage_no",params.car_storage_no)
             }
             eq("turnOff",'0')  //通过菜单配置传值turnOff，只提取启用状态的公告
-            if(params.isExp){
-                eq("isExp",params.isExp)
+            if(params.is_Exp){
+                eq("is_Exp",params.is_Exp)
             }
             order 'createTime','desc'
         }
