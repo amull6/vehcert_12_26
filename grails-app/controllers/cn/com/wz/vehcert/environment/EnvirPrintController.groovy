@@ -702,7 +702,7 @@ class EnvirPrintController extends BaseController {
         String id =""
         User loginUser=session.getAttribute(ConstantsUtil.LOGIN_USER)
         def flag=true
-        def idStr=params.id//重型燃气车车辆环保信息库id
+        def idStr=params.id//重国六轻型汽油车辆环保信息库id
         def zcinfoIDStr = params.zcinfoID///
         def usertype =params.usertype
         def QRpiUrl
@@ -1125,7 +1125,7 @@ class EnvirPrintController extends BaseController {
         try {
             if(!lightPetrolGb6InfoPrint.delete(flush: true)){    //如果删除成功
                 println('删除环保随车清单成功')
-                def envirUpload = EnvirUpload.findByEn_clsbdh(lightPetrolGb6InfoPrint?.en_vin)
+                def envirUpload = EnvirUpload.findByEn_clsbdh(lightPetrolGb6InfoPrint?.en_clsbdh)
                 envirUpload.delete(flush: true)
                 println('删除环保随车清单上传数据成功')
             }

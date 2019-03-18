@@ -367,7 +367,7 @@
                         window.location.href = url;
                     }
                 },'text');
-            }else if(en_type == 'LightPetrolGb6'){//重型燃气车
+            }else if(en_type == 'LightPetrolGb6'){//轻型汽油国六
 //                alert(en_type);
                 var searchCocPrnUrl = '${createLink(controller:'envirPrint',action:'jsonSearchLightPetrolGb6EnvPrn')}?zcinfoID='+data1.id;
                 $.post(searchCocPrnUrl,function(data,textStatus){

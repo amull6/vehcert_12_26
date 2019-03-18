@@ -43,7 +43,7 @@
 </form>
 <form id="form1" style="position: relative">
 <table width="720px;"    border="0px" class="tabp" style="margin-left:15px;font-size: 20px;font-family:'宋体'">
-    <tr height="700">
+    <tr height="800">
     </tr>
 </table>
 <table width="645px;"    border="0px" class="tabp" style="margin-left:55px;font-size: 0px;font-family:'宋体'">
@@ -54,7 +54,7 @@
     </tr>
 </table>
 <table width="720px;"    border="0px" class="tabp" style="margin-left:55px;font-size: 20px;font-family:'宋体'">
-    <tr height="50">
+    <tr height="30">
     </tr>
 </table>
 <table width="645px;"    border="0px" class="tabp" style="margin-left:55px;font-size: 0px;font-family:'宋体'">
@@ -64,13 +64,13 @@
         </td>
     </tr>
     <tr>
-        <td colspan="12" scope="col" style="font-family:'Arial';color:#A80000;font-size: 14px;text-align: center " >
+        <td colspan="12" scope="col" style="font-family:'Arial';color:#A80000;font-size: 20px;text-align: center " >
           ${lightPetrolGb6Info?.en_xxgkbh}
         </td>
     </tr>
 </table>
 <table width="720px;"    border="0px" class="tabp" style="margin-left:55px;font-size: 20px;font-family:'宋体'">
-    <tr height="50">
+    <tr height="30">
     </tr>
 </table>
 <table width="645px;"    border="0px" class="tabp" style="margin-left:55px;font-size: 0px;font-family:'宋体'">
@@ -87,10 +87,10 @@
 </table>
 
 <table width="720px;"    border="0px" class="tabp" style="margin-left:15px;font-size: 20px;font-family:'宋体'">
-    <tr height="230">
+    <tr height="130">
     </tr>
 </table>
-<table width="720px;"    border="0px" class="tabp" style="margin-left:15px;margin-top:50px;font-size: 20px;font-family:'宋体'">
+<table width="720px;"    border="0px" class="tabp" style="margin-left:15px;margin-top:50px;font-size: 12px;font-family:'宋体'">
     <tr>
         <td colspan="9" style="font-family:'宋体';font-size: 12px;height: 20px">
                 &nbsp;  &nbsp; 浙江飞碟汽车制造有限公司声明：本清单为本企业依据《中华人民共和国大气污染防治法》和生态环境部相关规定公开的机动车环保信息，本企业对本清单所有内容的真实性、准确性、及时性和完整性负责。
@@ -103,7 +103,7 @@
     </tr>
     <tr height=3></tr>
 </table>
-<table width="700px;"   border="0px" class="tabp" style="margin-left:15px;margin-top:10px;font-size: 20px;font-family:'宋体'">
+<table width="700px;"   border="0px" class="tabp" style="margin-left:15px;margin-top:0px;">
     <tr>
         <td colspan="12" scope="col" style="text-align: center " >
             <span>
@@ -392,7 +392,7 @@
     </tr>
 </table>
 <table width="720px;"    border="0px" class="tabp" style="margin-left:15px;font-size: 20px;font-family:'宋体'">
-    <tr height="100">
+    <tr height="80">
         %{--<td   width="10px" style=" font-family:'宋体';font-size:12px;"></td>--}%
         %{--<td  colspan="2" width="200px"style=" font-family:'宋体';font-size:12px;">车辆生产（进口）日期：</td>--}%
         %{--<td  colspan="2" width="300px"style=" font-family:'宋体';font-size:12px;">--}%
