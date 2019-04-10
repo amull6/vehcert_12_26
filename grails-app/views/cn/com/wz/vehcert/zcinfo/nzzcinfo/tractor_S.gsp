@@ -37,7 +37,7 @@
                 <g:hiddenField name="car_storage_type" id='car_storage_type' value="${NZInfoInstance.car_storage_type}"/>
                 <g:hiddenField name="infoid" value="${NZInfoInstance.id}"/>
                 <g:hiddenField name="isupload" value="${NZInfoInstance.upload }"/>
-                <input name="is_Exp" id='is_Exp' value="${NZInfoInstance.is_Exp}"/>
+                <g:hiddenField name="is_Exp" id='is_Exp' value="${NZInfoInstance.is_Exp}"/>
                 <div class="om-grid om-widget om-widget-content" style="height: 100%;">
                     <div class="bDiv" style="width: auto; height:100%">
                         <table id="grid" style="width: 80%" cellpadding="0" cellspacing="0" border="0">
