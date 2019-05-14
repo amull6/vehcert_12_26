@@ -61,7 +61,15 @@ class PreCarStorageService {
                                 carstorage.veh_Ggpc=params.veh_Ggpc
                                 carstorage.veh_Cpggh=params.veh_Cpggh
                                 carstorage.veh_Ggsxrq=params.veh_Ggsxrq
-                                carstorage.save(flush: true)
+                                String curTime=DateUtil.getCurrentTime()
+                                carstorage.updaterId=params.userId
+                                carstorage.updateTime=curTime
+                                if(carstorage.save(flush: true)){
+                                    Temp t=new Temp()
+                                    t.wzh_carstorageID=carstorage.id
+                                    t.wzh_type=1
+                                    t.insertTime=curTime
+                                }
                             }
                         }
                     }
@@ -73,7 +81,15 @@ class PreCarStorageService {
                                 carstorage.veh_Ggpc=params.veh_Ggpc
                                 carstorage.veh_Cpggh=params.veh_Cpggh
                                 carstorage.veh_Ggsxrq=params.veh_Ggsxrq
-                                carstorage.save(flush: true)
+                                String curTime=DateUtil.getCurrentTime()
+                                carstorage.updaterId=params.userId
+                                carstorage.updateTime=curTime
+                                if(carstorage.save(flush: true)){
+                                    Temp t=new Temp()
+                                    t.wzh_carstorageID=carstorage.id
+                                    t.wzh_type=1
+                                    t.insertTime=curTime
+                                }
                             }
                         }
                     }
