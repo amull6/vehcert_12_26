@@ -92,7 +92,7 @@
         <tr>
         <td colspan="12" style="font-family:'宋体';font-size: 14px;height: 20px">
             <g:if test="${heavyDieselInfo?.type=='0'}">
-            &nbsp;  &nbsp; 浙江飞碟汽车制造有限公司声明：本清单为本企业依据《中华人民共和国大气污染防治法》和生态环境部相关规定公开的机动车环保信息，本企业对本清单所有内容的真实性、准确性、及时性和完整性负责。本公司承诺：我公司VIN码（见本页条形码）的重型柴油车符合《车用压燃式、气体燃料点燃式发动机与汽车排气污染物排放限值及测量方法（中国Ⅲ、Ⅳ、Ⅴ阶段）》（GB 17691-2005）
+            &nbsp;  &nbsp; 浙江飞碟汽车制造有限公司声明：本清单为本企业依据《中华人民共和国大气污染防治法》和生态环境部相关规定公开的机动车环保信息，本企业对本清单所有内容的真实性、准确性、及时性和完整性负责。本公司承诺：我公司VIN码（见本页条形码）的重型柴油车符合《车用压燃式、气体燃料点燃式发动机与汽车排气污染物排放限值及测量方法（中国Ⅲ、Ⅳ、Ⅴ阶段）》（GB 17691-2005）第
                 <g:if test="${heavyDieselInfo?.en_pfjd=='国四'}">
                     Ⅳ
                 </g:if> <g:elseif test="${heavyDieselInfo?.en_pfjd=='国五'}">
@@ -101,7 +101,7 @@
                 《柴油车污染物排放限值及测量方法（自由加速法及加载减速法）》（GB3847-2018）
             </g:if> <g:else>
                 《车用压燃式发动机和压燃式发动机汽车排气烟度排放限值及测量方法》（GB 3847-2005）
-            </g:else>和《汽车加速行驶车外噪声限值及测量方法》（GB 1495-2002）第Ⅱ阶段的要求。
+            </g:else>和《汽车加速行驶车外噪声限值及测量方法》（GB 1495-2002）第Ⅱ阶段的要求，同时符合相关标准规定的环境保护耐久性要求。
             </g:if><g:elseif test="${heavyDieselInfo?.type=='1'}">
                 &nbsp;  &nbsp; 浙江飞碟汽车制造有限公司声明：本清单为本企业依据《中华人民共和国大气污染防治法》和生态环境部相关规定公开的机动车环保信息，本企业对本清单所有内容的真实性、准确性、及时性和完整性负责。本公司承诺： 我公司VIN码（见本页条形码）的城市车辆符合《车用压燃式、气体燃料点燃式发动机与汽车排气污染物排放限值及测量方法（中国Ⅲ、Ⅳ、Ⅴ阶段）》（GB 17691-2005）第
                 <g:if test="${heavyDieselInfo?.en_pfjd=='国四'}">
@@ -291,7 +291,7 @@
 <table width="720px;"    border="0px" class="tabp" style="margin-left:15px;font-size: 20px;font-family:'宋体'">
     <tr height="10" >
         <td   width="10px" style=" font-family:'宋体';font-size:14px;">16</td>
-        <td   width="500px"style=" font-family:'宋体';font-size:14px;" colspan="4">本车型环保生产一致性保证计划及执行情况，详见本公司官方网站和生态环境部信息公开平台（网址附后）。</td>
+        <td   width="500px"style=" font-family:'宋体';font-size:14px;" colspan="4">车型环保生产一致性保证计划及执行情况，详见本公司官方网站和生态环境部信息公开平台（网址附后）。</td>
     </tr>
     <tr>
         <td colspan="5" scope="col"style="font-family:'宋体';font-size:14px;font-weight: bold">
@@ -441,7 +441,7 @@
     <tr>
         <td colspan="12" scope="col"style="font-family:'宋体';font-size:14px;font-weight: bold">
             %{--第五部分 制造商/进口企业信息--}%
-            <img src="../images/en_part6.png"  height="13px"  border="0">
+            <img src="../images/en_part6_2.png"  height="13px"  border="0">
         </td>
     </tr>
     <tr height="10">
@@ -469,7 +469,7 @@
 
     <tr height="10">
         <td  colspan="11" width="300px"style=" font-family:'宋体';font-size:14px;">
-            &nbsp;  &nbsp;  本信息内容可访问本公司官方网站（正在建设中）和生态环境部机动车和非道路移动机械环保信息公开平台（http://www.vecc.org.cn）。
+            &nbsp;  &nbsp;  本清单内容及相关信息可查询本公司官方网站（正在建设中）和生态环境部机动车和非道路移动机械环保信息公开平台（http://www.vecc.org.cn）。
         </td>
     </tr>
     </table>
