@@ -57,6 +57,7 @@ class HeavyGasInfo {
     int status=0 ;
     String en_zzrq;  //制造日期
     String en_tc        //封装/载体/涂层生产厂
+    String en_bz          //备注
 
 
     static constraints = {
@@ -106,6 +107,7 @@ class HeavyGasInfo {
         status     (nullable:true)
         en_zzrq    (nullable:true)
         en_tc       (nullable: true) //封装/载体/涂层生产厂
+        en_bz        (nullable: true)  //备注
     }
     static mapping = {
         table 'WZH_HEAVY_GAS_INFO'
@@ -155,5 +157,6 @@ class HeavyGasInfo {
         status     (comment:'状态 ：0未上传 1 已上传 2上传失败')
         en_zzrq    (comment:'制造日期')
         en_tc       (comment:'封装/载体/涂层生产厂') //封装/载体/涂层生产厂
+        en_bz        (comment:'备注')       //备注
     }
 }

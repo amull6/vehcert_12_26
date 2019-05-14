@@ -53,6 +53,10 @@
     <td align="left" abbr="city" class="col1"><div align="left" class="innerCol " style="width:300px">
         <input  name="en_dcrl" type="text" value="${newEnergy?.en_dcrl}" style="width:300px;"/>
     </div></td>
+    <td align="left"><div style="text-align: left; " class="om-resizable">备注</div></td>
+    <td align="left" abbr="city" class="col1"><div align="left" class="innerCol ">
+        <input name="en_bz" type="text" value="${heavyDiesel?.en_bz}" style="width:300px;"/>
+    </div></td>
 </tr>
 %{--<tr>--}%
 %{--<td align="left"><div style="text-align: left; " class="om-resizable">货箱内部高</div></td>--}%

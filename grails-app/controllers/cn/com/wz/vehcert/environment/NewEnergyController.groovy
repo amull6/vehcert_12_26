@@ -109,6 +109,7 @@ class NewEnergyController extends BaseController{
             labels.add('en_zckzqxh');
             labels.add('en_cnzzxh');
             labels.add('en_dcrl');
+            labels.add('en_bz');
             def map=[:];
             map.put('startRow',1) ;//从第二行开始
             IRowReader reader = new RowReader(labels,map);
@@ -193,6 +194,7 @@ class NewEnergyController extends BaseController{
                         "en_zckzqxh":"整车控制器型号/版本号/生产厂",
                         "en_cnzzxh":"储能装置型号/生产厂",
                         "en_dcrl":"电池容量/续航里程",
+                        "en_bz":"备注 "
                 ]
                 def upperCase = { domain, value ->
                     return value.toUpperCase()

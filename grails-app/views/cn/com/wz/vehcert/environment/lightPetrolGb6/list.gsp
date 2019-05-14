@@ -226,7 +226,8 @@
                 {header : "创建时间", name : 'create_time', width : 150, align : 'center'},
                 {header : "创建人id", name : 'creater_id', width : 150, align : 'center'},
                 {header : "最后更新时间", name : 'update_time', width : 150, align : 'center'},
-                {header : "最后更新人", name : 'updater_id', width :150, align : 'center'}]
+                {header : "最后更新人", name : 'updater_id', width :150, align : 'center'},
+                {header : "备注", name : 'en_bz', width : 150, align : 'center'}]
         });
     }
     function backFunc(result){

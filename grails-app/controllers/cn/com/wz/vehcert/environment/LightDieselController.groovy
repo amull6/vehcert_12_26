@@ -123,6 +123,7 @@ class LightDieselController extends BaseController {
             labels.add('en_xyqxh');
             labels.add('en_iuprjcgn');
             labels.add('type');
+            labels.add('en_bz');
 
             def map=[:];
             map.put('startRow',1) ;//从第二行开始
@@ -223,6 +224,7 @@ class LightDieselController extends BaseController {
                         "en_xyqxh":"消音器型号",
                         "en_iuprjcgn":"IUPR监测功能",
                         "type":"清单型号",
+                         "en_bz":"备注 "
                 ]
                 def upperCase = { domain, value ->
                     return value.toUpperCase()

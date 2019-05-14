@@ -448,6 +448,7 @@ class EnvirPrintController extends BaseController {
                     heavyDieselInfo.en_clsbdh   = zcinfoInstance?.veh_Clsbdh
                     heavyDieselInfo.en_fdjh     = zcinfoInstance?.veh_Fdjh
                     heavyDieselInfo.en_zzrq     = zcinfoInstance?.veh_Fzrq
+                    heavyDieselInfo.en_bz              =heavyDiesel.en_bz
 
 //                    ############################生成二维防伪码START##############################
                     def   veh_Clsbdh   = zcinfoInstance?.veh_Clsbdh
@@ -561,7 +562,7 @@ class EnvirPrintController extends BaseController {
                 heavyGasInfo.create_time       =DateUtil.getCurrentTime()
                 heavyGasInfo.en_fdjbh          =zcinfoInstance?.veh_Fdjh
                 heavyGasInfo.en_zzrq           =zcinfoInstance?.veh_Fzrq
-
+                heavyGasInfo.en_bz             =heavyGas.en_bz
 //                    ############################生成二维防伪码START##############################
                 def   veh_Clsbdh   = zcinfoInstance?.veh_Clsbdh
                 QRpiUrl =this.generateQR(veh_Clsbdh)  //使用第三方插件生成二维码,f返回文件URL
@@ -644,7 +645,7 @@ class EnvirPrintController extends BaseController {
                 newEnergyInfo.create_time       =DateUtil.getCurrentTime()
                 newEnergyInfo.en_ddjbh          =zcinfoInstance?.veh_Fdjh
                 newEnergyInfo.en_zzrq           =zcinfoInstance?.veh_Fzrq
-
+                newEnergyInfo.en_bz             =newEnergy.en_bz
 //                    ############################生成二维防伪码START##############################
                 def   veh_Clsbdh   = zcinfoInstance?.veh_Clsbdh
                 QRpiUrl =this.generateQR(veh_Clsbdh)  //使用第三方插件生成二维码,f返回文件URL
@@ -744,10 +745,10 @@ class EnvirPrintController extends BaseController {
                 lightPetrolGb6Info.en_clsbdh         =zcinfoInstance.veh_Clsbdh
                 lightPetrolGb6Info.creater_id        =loginUser.userName
                 lightPetrolGb6Info.create_time       =DateUtil.getCurrentTime()
-                lightPetrolGb6Info.en_fdjh          =zcinfoInstance?.veh_Fdjh
+                lightPetrolGb6Info.en_fdjh           =zcinfoInstance?.veh_Fdjh
                 lightPetrolGb6Info.en_zzrq           =zcinfoInstance?.veh_Fzrq
                 lightPetrolGb6Info.en_jzzl           =Integer.toString(Integer.parseInt(zcinfoInstance?.veh_Zbzl)+100)
-
+                lightPetrolGb6Info.en_bz             =lightPetrolGb6.en_bz
 //                    ############################生成二维防伪码START##############################
                 def   veh_Clsbdh   = zcinfoInstance?.veh_Clsbdh
                 QRpiUrl =this.newGenerateQR(veh_Clsbdh)  //使用第三方插件生成二维码,f返回文件URL
@@ -943,7 +944,7 @@ class EnvirPrintController extends BaseController {
                 lightDieselInfo.en_xyqxh          =lightDiesel.en_xyqxh
                 lightDieselInfo.en_iuprjcgn       =lightDiesel.en_iuprjcgn
                 lightDieselInfo.type              =lightDiesel.type
-
+                lightDieselInfo.en_bz             =lightDiesel.en_bz
 
 
                 lightDieselInfo.creater_id        =loginUser.userName
@@ -1267,7 +1268,7 @@ class EnvirPrintController extends BaseController {
                 lightDualInfo.en_zyqxh          =lightDual.en_zyqxh
                 lightDualInfo.en_zlqxs          =lightDual.en_zlqxs
                 lightDualInfo.type              =lightDual.type
-
+                lightDualInfo.en_bz             =lightDual.en_bz
 
                 lightDualInfo.creater_id        =loginUser.userName
                 lightDualInfo.create_time       =DateUtil.getCurrentTime()

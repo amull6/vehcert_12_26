@@ -137,7 +137,8 @@ class HeavyGasController extends BaseController{
             labels.add('en_pqxsqxh');
             labels.add('en_pqhclxtxs') ;
             labels.add('en_pqhclxtxh') ;
-            labels.add('en_tc')
+            labels.add('en_tc');
+            labels.add('en_bz');
 
             def map=[:];
             map.put('startRow',1) ;//从第二行开始
@@ -250,7 +251,8 @@ class HeavyGasController extends BaseController{
                         "en_pqxsqxh":"排气消声器型号",
                         "en_pqhclxtxs":"排气后处理系统型式",
                         "en_pqhclxtxh":"排气后处理系统型号",
-                        "en_tc":"封装/载体/涂层生产厂"
+                        "en_tc":"封装/载体/涂层生产厂",
+                        "en_bz":"备注 "
                 ]
                 def upperCase = { domain, value ->
                     return value.toUpperCase()

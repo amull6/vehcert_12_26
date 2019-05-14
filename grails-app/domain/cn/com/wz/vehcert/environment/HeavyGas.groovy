@@ -47,6 +47,7 @@ class HeavyGas {
     String update_time   //最后更新时间
     String updater_id     //最后更新人
     String en_tc        //封装/载体/涂层生产厂
+    String en_bz        //备注
 
     static constraints = {
         en_xxgkbh (nullable: true) //信息公开号
@@ -89,6 +90,7 @@ class HeavyGas {
         updater_id    (blank: true,nullable: true)
         create_time (blank: true,nullable: true)
         en_tc       (nullable: true) //封装/载体/涂层生产厂
+        en_bz       (nullable: true) //备注
     }
     static mapping = {
         table 'WZH_HEAVY_GAS'
@@ -133,5 +135,6 @@ class HeavyGas {
         update_time   (comment:'最后更新时间')
         updater_id     (comment:'最后更新人')
         en_tc       (comment:'封装/载体/涂层生产厂') //封装/载体/涂层生产厂
+        en_bz        (comment:'备注')       //备注
     }
 }

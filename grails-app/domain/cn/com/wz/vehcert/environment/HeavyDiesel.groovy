@@ -51,6 +51,7 @@ class HeavyDiesel {
     String creater_id //创建人id
     String update_time   //最后更新时间
     String updater_id     //最后更新人
+    String en_bz      //备注
 
 
 
@@ -100,6 +101,7 @@ class HeavyDiesel {
         creater_id   (nullable: true)//创建人id
         update_time  (nullable: true)//最后更新时间
         updater_id   (nullable: true)  //最后更新人
+        en_bz        (nullable: true)  //备注
     }
     static mapping = {
         table 'WZH_HEAVY_DIESEL'
@@ -151,5 +153,6 @@ class HeavyDiesel {
         creater_id   (comment:'创建人id')//创建人id
         update_time  (comment:'最后更新时间')//最后更新时间
         updater_id   (comment:'最后更新人')  //最后更新人
+        en_bz        (comment:'备注')       //备注
     }
 }

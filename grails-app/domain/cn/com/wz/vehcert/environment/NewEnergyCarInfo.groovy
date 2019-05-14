@@ -25,7 +25,8 @@ class NewEnergyCarInfo {
     String qr_name     //二维码文件名
     String bar_name    //条形码文件吗
     int status=0       //上传状态 0未上传 1 已上传 2上传失败
-    String en_zzrq     //制造日期  z
+    String en_zzrq     //制造日期
+    String en_bz          //备注
 
     static constraints = {
         en_xxgkbh (nullable: true)  //信息公开号
@@ -47,6 +48,7 @@ class NewEnergyCarInfo {
         bar_name (nullable:true)
         status   (nullable:true)
         en_zzrq  (nullable:true)
+        en_bz    (nullable: true)  //备注
     }
     static mapping = {
         table 'WZH_NEW_ENERGY_CAR_INFO'
@@ -71,5 +73,6 @@ class NewEnergyCarInfo {
         bar_name (comment:'条形码文件名')
         status   (comment:'状态 ：0未上传 1 已上传 2上传失败')
         en_zzrq  (comment:'制造日期')
+        en_bz   (comment:'备注')       //备注
     }
 }

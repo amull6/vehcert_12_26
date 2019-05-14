@@ -54,6 +54,7 @@ class HeavyPetrolInfo {
          * 上传状态 0未上传 1 已上传 2上传失败
          */
         int status=0
+        String en_bz          //备注
     static constraints = {
         en_xxgkbh (nullable: true) //信息公开号
         en_clxh   (nullable: true)    //车辆型号
@@ -98,7 +99,7 @@ class HeavyPetrolInfo {
         updater_id    (blank: true,nullable: true)
         create_time (blank: true,nullable: true)
         status     (nullable:true)   //上传状态 0未上传 1 已上传 2上传失败
-
+        en_bz        (nullable: true)  //备注
     }
     static mapping = {
         table 'WZH_HEAVY_PETROL_INFO'
@@ -146,7 +147,7 @@ class HeavyPetrolInfo {
         update_time   (comment:'最后更新时间')
         updater_id     (comment:'最后更新人')
         status     (comment:'状态 ：0未上传 1 已上传 2上传失败')
-
+        en_bz        (comment:'备注')       //备注
     }
 
 }

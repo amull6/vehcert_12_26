@@ -84,13 +84,21 @@
                 %{--双燃料--}%
                 &nbsp;  &nbsp; 浙江飞碟汽车制造有限公司声明：本清单为本企业依据《中华人民共和国大气污染防治法》和生态环境部相关规定公开的机动车环保信息，本企业对本清单所有内容的真
              实性、准确性、及时性和完整性负责。本公司承诺：我公司VIN码（见本页条形码）的轻型两用燃料车符合《轻型汽车污染物排放限值及测量方法（中国第五阶段）》
-             （GB 18352.5-2013）、《点燃式发动机汽车排气污染物排放限值及测量方法（双怠速法及简易工况法）》（GB 18285-2005）和《汽车加速行驶车外噪声限值及测量方法》
+             （GB 18352.5-2013）、<g:if test="${lightDualInfo?.en_bz == '新标准'}">
+                《汽油车污染物排放限值及测量方法（双怠速法及简易工况法）》（GB 18285-2018）
+            </g:if> <g:else>
+                《点燃式发动机汽车排气污染物排放限值及测量方法（双怠速法及简易工况法）》（GB 18285）
+            </g:else>和《汽车加速行驶车外噪声限值及测量方法》
              （GB 1495-2002）第Ⅱ阶段的要求。
             </g:if>
             <g:elseif test="${lightDualInfo?.type=='1'}" >
                 &nbsp;  &nbsp; 浙江飞碟汽车制造有限公司声明：本清单为本企业依据《中华人民共和国大气污染防治法》和生态环境部相关规定公开的机动车环保信息，本企业对本清单所有内容的真实性、准确性、
                及时性和完整性负责。本公司承诺：我公司VIN码（见本页条形码）的轻型汽油车符合《轻型汽车污染物排放限值及测量方法（中国第五阶段）》（GB 18352.5-2013）、
-               《点燃式发动机汽车排气污染物排放限值及测量方法（双怠速法及简易工况法）》（GB 18285-2005）和《汽车加速行驶车外噪声限值及测量方法》（GB 1495-2002）
+                <g:if test="${lightDualInfo?.en_bz == '新标准'}">
+                    《汽油车污染物排放限值及测量方法（双怠速法及简易工况法）》（GB 18285-2018）
+                </g:if> <g:else>
+                《点燃式发动机汽车排气污染物排放限值及测量方法（双怠速法及简易工况法）》（GB 18285）
+            </g:else>和《汽车加速行驶车外噪声限值及测量方法》（GB 1495-2002）
                第Ⅱ阶段的要求。
             </g:elseif>
 
@@ -170,13 +178,16 @@
             <td style=" font-family:'宋体';font-size:14px;">${lightDualInfo?.en_jcbz1}</td>
             <td style=" font-family:'宋体';font-size:14px;">符合</td>
         </tr>
+    <g:if test="${lightDualInfo?.en_bz == '新标准'}">
+
+    </g:if> <g:else>
         <tr height="10" >
             <td style=" font-family:'宋体';font-size:14px;"></td>
             <td style=" font-family:'宋体';font-size:14px;">GB 18285-2005</td>
             <td style=" font-family:'宋体';font-size:14px;">${lightDualInfo?.en_jcbz2}</td>
             <td  style=" font-family:'宋体';font-size:14px;">符合</td>
         </tr>
-
+    </g:else>
         <tr height="10" >
             <td    style=" font-family:'宋体';font-size:14px;"></td>
             <td  style=" font-family:'宋体';font-size:14px;">GB 1495-2002</td>

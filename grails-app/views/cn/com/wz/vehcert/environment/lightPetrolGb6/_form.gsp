@@ -151,11 +151,10 @@
     <td align="left" abbr="city" class="col1"><div align="left" class="innerCol ">
         <input name="en_ecuxh" type="text" value="${lightPetrolGb6?.en_ecuxh}" style="width:300px;"/></div>
     </td>
-
-    %{--<td align="left"><div style="text-align: left; " class="om-resizable">OBD型号</div></td>--}%
-    %{--<td align="left" abbr="city" class="col1"><div align="left" class="innerCol ">--}%
-        %{--<input name="obdxh" type="text"  value="${lightPetrolGb6?.en_obdxh}" style="width:300px;"/></div>--}%
-    %{--</td>--}%
+    <td align="left"><div style="text-align: left; " class="om-resizable">备注</div></td>
+    <td align="left" abbr="city" class="col1"><div align="left" class="innerCol ">
+        <input name="en_bz" type="text" value="${heavyDiesel?.en_bz}" style="width:300px;"/>
+    </div></td>
 </tr>
 %{--<tr>--}%
     %{--<td align="left"><div style="text-align: left; " class="om-resizable">曲轴箱污染物排放控制装置型号</div></td>--}%

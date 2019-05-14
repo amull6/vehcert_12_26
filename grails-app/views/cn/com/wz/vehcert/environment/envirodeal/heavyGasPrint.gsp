@@ -73,7 +73,11 @@
         <td colspan="12" style="font-family:'宋体';font-size: 14px;height: 20px">
                 &nbsp;  &nbsp; 浙江飞碟汽车制造有限公司声明：本清单为本企业依据《中华人民共和国大气污染防治法》和生态环境部相关规定公开的机动车环保信息，本企业对本清单所有内容的真实性、准确性、及时性和完整性负责。
             本公司承诺：我公司VIN码（见本页条形码）的重型燃气车符合《车用压燃式、气体燃料点燃式发动机与汽车排气污染物排放限值及测量方法（中国Ⅲ、Ⅳ、Ⅴ阶段）》（GB 17691-2005）第Ⅴ阶段、
-            《点燃式发动机汽车排气污染物排放限值及测量方法（双怠速法及简易工况法）》（GB 18285-2005）、《装用点燃式发动机重型汽车曲轴箱污染物排放限值及测量方法》（GB 11340-2005）和《汽车加速行驶车外噪声限值及测量方法》（GB 1495-2002）第Ⅱ阶段的要求，同时符合乘用车内空气质量标准和相关标准规定的环境保护耐久性要求。
+                <g:if test="${heavyGasInfo?.en_bz == '新标准'}">
+                    《汽油车污染物排放限值及测量方法（双怠速法及简易工况法）》（GB 18285-2018）
+                </g:if> <g:else>
+                    《点燃式发动机汽车排气污染物排放限值及测量方法（双怠速法及简易工况法）》（GB 18285-2005）
+                </g:else>、《装用点燃式发动机重型汽车曲轴箱污染物排放限值及测量方法》（GB 11340-2005）和《汽车加速行驶车外噪声限值及测量方法》（GB 1495-2002）第Ⅱ阶段的要求，同时符合乘用车内空气质量标准和相关标准规定的环境保护耐久性要求。
         </td>
     </tr>
     <tr height=3></tr>
@@ -194,12 +198,16 @@
         <td  style=" font-family:'宋体';font-size:14px;">${heavyGasInfo?.en_jcbz3}</td>
         <td  style=" font-family:'宋体';font-size:14px;">符合</td>
     </tr>
+    <g:if test="${heavyGasInfo?.en_bz == '新标准'}">
+
+    </g:if> <g:else>
     <tr height="10" >
         <td    style=" font-family:'宋体';font-size:14px;"></td>
         <td  style=" font-family:'宋体';font-size:14px;">GB 18285-2005</td>
         <td  style=" font-family:'宋体';font-size:14px;">${heavyGasInfo?.en_jcbz4}</td>
         <td style=" font-family:'宋体';font-size:14px;">符合</td>
     </tr>
+    </g:else>
     <tr height="10" >
         <td    style=" font-family:'宋体';font-size:14px;"></td>
         <td style=" font-family:'宋体';font-size:14px;">GB 11340-2005</td>

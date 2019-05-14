@@ -129,6 +129,7 @@ class LightPetrolGb6Controller extends BaseController{
             labels.add('en_xyqxh');
             labels.add('en_zyqxh');
             labels.add('en_zlqxs');
+            labels.add('en_bz');
 
             def map=[:];
             map.put('startRow',1) ;//从第二行开始
@@ -232,6 +233,7 @@ class LightPetrolGb6Controller extends BaseController{
                         "en_xyqxh":"消音器型号/生产企业",
                         "en_zyqxh":"增压器型号/生产企业",
                         "en_zlqxs":"中冷器型式",
+                        "en_bz":"备注 "
                 ]
                 def upperCase = { domain, value ->
                     return value.toUpperCase()

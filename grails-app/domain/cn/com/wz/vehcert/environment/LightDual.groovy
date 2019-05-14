@@ -37,6 +37,7 @@ class LightDual {
     String update_time   //最后更新时间
     String updater_id     //最后更新人
     String type   //清单型号  ，0为轻型两用燃料车 ，1为轻型汽油车
+    String en_bz      //备注
 
     static constraints = {
         en_xxgkbh (nullable: true,unique: true)  //信息公开号
@@ -69,6 +70,7 @@ class LightDual {
         update_time (nullable: true)   //最后更新时间
         updater_id (nullable: true)    //最后更新人
         type      (nullable: true) //清单型号  ，0为轻型两用燃料车 ，1为轻型汽油车
+        en_bz        (nullable: true)  //备注
     }
     static mapping = {
         table 'WZH_LIGHT_DUAL'
@@ -104,5 +106,6 @@ class LightDual {
         update_time (comment:'最后更新时间')   //最后更新时间
         updater_id (comment:'最后更新人')    //最后更新人
         type     (comment:'清单型号，0为轻型两用燃料车，1为轻型汽油车') //清单型号 ，0为轻型两用燃料车 ，1为轻型汽油车
+        en_bz        (comment:'备注')       //备注
     }
 }

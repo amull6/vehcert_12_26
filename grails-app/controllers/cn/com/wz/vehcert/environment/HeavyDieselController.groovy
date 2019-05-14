@@ -2,15 +2,16 @@ package cn.com.wz.vehcert.environment
 
 import cn.com.wz.parent.DateUtil
 import cn.com.wz.parent.UploadUtil
+import cn.com.wz.parent.base.BaseController
 import cn.com.wz.parent.system.user.User
 import grails.converters.JSON
 import org.springframework.core.io.support.PropertiesLoaderUtils
 import org.springframework.dao.DataIntegrityViolationException
-import cn.com.wz.parent.base.BaseController
 import parent.poi.ExcelUtils
 import parent.poi.event.ExcelReaderUtil
 import parent.poi.event.IRowReader
-import parent.poi.event.RowReader;
+import parent.poi.event.RowReader
+
 class HeavyDieselController extends BaseController {
 
     def heavyDieseService
@@ -136,6 +137,7 @@ class HeavyDieselController extends BaseController {
             labels.add('en_pqxsqxh');
 
             labels.add('type');
+            labels.add('en_bz');
             def map=[:];
             map.put('startRow',1) ;//从第二行开始
             IRowReader reader = new RowReader(labels,map);
@@ -247,7 +249,9 @@ class HeavyDieselController extends BaseController {
                                 "en_klqxh":"空滤器型号",
                                 "en_jqxsqxh":"进气消声器型号",
                                 "en_pqxsqxh":"排气消声器型号",
-                                "type":"清单型号 "
+                                "type":"清单型号 ",
+                                "en_bz":"备注 "
+
                             ]
                 def upperCase = { domain, value ->
                     return value.toUpperCase()

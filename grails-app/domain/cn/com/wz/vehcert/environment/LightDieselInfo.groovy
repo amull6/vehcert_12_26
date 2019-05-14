@@ -42,7 +42,8 @@ class LightDieselInfo {
          * 上传状态 0未上传 1 已上传 2上传失败
          */
         int status=0
-        String en_zzrq  //制造日期  z
+        String en_zzrq  //制造日期
+        String en_bz          //备注
 
     static constraints = {
         en_xxgkbh (nullable: true) //信息公开号
@@ -77,6 +78,7 @@ class LightDieselInfo {
         bar_name (nullable:true)
         status  (nullable:true)
         en_zzrq (nullable:true)
+        en_bz        (nullable: true)  //备注
     }
     static mapping = {
         table 'WZH_LIGHT_DIESEL_INFO'
@@ -114,5 +116,6 @@ class LightDieselInfo {
         bar_name (comment:'条形码文件名')
         status     (comment:'状态 ：0未上传 1 已上传 2上传失败')
         en_zzrq  (comment:'制造日期')
+        en_bz        (comment:'备注')       //备注
     }
 }

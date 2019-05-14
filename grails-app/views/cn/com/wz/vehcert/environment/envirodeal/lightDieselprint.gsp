@@ -75,11 +75,21 @@
             <g:if test="${lightDieselInfo?.type=='0'}">
                 &nbsp;  &nbsp; 浙江飞碟汽车制造有限公司声明：本清单为本企业依据《中华人民共和国大气污染防治法》和生态环境部相关规定公开的机动车环保信息，本企业对本清单所有内容的真实性、准确性、及时性和完整性负责。
             本公司承诺：我公司VIN码（见本页条形码）的重型柴油车符合《车用压燃式、气体燃料点燃式发动机与汽车排气污染物排放限值及测量方法（中国Ⅲ、Ⅳ、Ⅴ阶段）》（GB 17691-2005）第Ⅳ阶段、
-            《车用压燃式发动机和压燃式发动机汽车排气烟度排放限值及测量方法》（GB 3847-2005）和《汽车加速行驶车外噪声限值及测量方法》（GB 1495-2002）第Ⅱ阶段的要求。
+                <g:if test="${lightDieselInfo?.en_bz == '新标准'}">
+                    《柴油车污染物排放限值及测量方法（自由加速法及加载减速法）》（GB 3847-2018）
+                </g:if> <g:else>
+                《车用压燃式发动机和压燃式发动机汽车排气烟度排放限值及测量方法》（GB 3847-2005）
+            </g:else>
+                和《汽车加速行驶车外噪声限值及测量方法》（GB 1495-2002）第Ⅱ阶段的要求。
             </g:if> <g:elseif test="${lightDieselInfo?.type=='1'}">
                 &nbsp;  &nbsp; 浙江飞碟汽车制造有限公司声明：本清单为本企业依据《中华人民共和国大气污染防治法》和生态环境部相关规定公开的机动车环保信息，本企业对本清单所有内容的真实性、准确性、及时性和完整性负责。
             本公司承诺：我公司VIN码（见本页条形码）的重型柴油车符合《车用压燃式、气体燃料点燃式发动机与汽车排气污染物排放限值及测量方法（中国Ⅲ、Ⅳ、Ⅴ阶段）》（GB 17691-2005）第Ⅴ阶段、
-            《车用压燃式发动机和压燃式发动机汽车排气烟度排放限值及测量方法》（GB 3847-2005）和《汽车加速行驶车外噪声限值及测量方法》（GB 1495-2002）第Ⅱ阶段的要求。
+                <g:if test="${lightDieselInfo?.en_bz == '新标准'}">
+                    《柴油车污染物排放限值及测量方法（自由加速法及加载减速法）》（GB 3847-2018）
+                </g:if> <g:else>
+                    《车用压燃式发动机和压燃式发动机汽车排气烟度排放限值及测量方法》（GB 3847-2005）
+                </g:else>
+                和《汽车加速行驶车外噪声限值及测量方法》（GB 1495-2002）第Ⅱ阶段的要求。
             </g:elseif>
         </td>
     </tr>
@@ -157,12 +167,16 @@
         <td style=" font-family:'宋体';font-size:14px;">${lightDieselInfo?.en_jcbz1}</td>
         <td style=" font-family:'宋体';font-size:14px;">符合</td>
     </tr>
+    <g:if test="${lightDieselInfo?.en_bz == '新标准'}">
+
+    </g:if> <g:else>
     <tr height="10" >
         <td style=" font-family:'宋体';font-size:14px;"></td>
         <td style=" font-family:'宋体';font-size:14px;">GB 3847-2005</td>
         <td style=" font-family:'宋体';font-size:14px;">${lightDieselInfo?.en_jcbz2}</td>
         <td  style=" font-family:'宋体';font-size:14px;">符合</td>
     </tr>
+    </g:else>
     <tr height="10" >
         <td    style=" font-family:'宋体';font-size:14px;"></td>
         <td  style=" font-family:'宋体';font-size:14px;">GB 1495-2002</td>

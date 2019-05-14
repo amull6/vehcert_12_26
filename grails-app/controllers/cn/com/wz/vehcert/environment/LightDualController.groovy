@@ -134,8 +134,7 @@ class LightDualController extends BaseController {
             labels.add('en_zyqxh');
             labels.add('en_zlqxs');
             labels.add('type');
-
-            labels.add('type');
+            labels.add('en_bz');
             def map=[:];
             map.put('startRow',1) ;//从第二行开始
             IRowReader reader = new RowReader(labels,map);
@@ -239,7 +238,8 @@ class LightDualController extends BaseController {
                         "en_zyqxh":"增压器型号",
 
                         "en_zlqxs":"中冷器型式",
-                        "type":"清单型号 "
+                        "type":"清单型号 ",
+                        "en_bz":"备注 "
                 ]
                 def upperCase = { domain, value ->
                     return value.toUpperCase()

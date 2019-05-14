@@ -56,13 +56,13 @@
     </div>
 </g:elseif>
 <g:if test="${heavyDieselInfo?.type=='0'}">
-    <div style="width: 102%;height: 3px;position: absolute;left:-10px;top: 195px; text-align: center;margin-left: 35px">
+    <div style="width: 102%;height: 3px;position: absolute;left:-10px;top: 192px; text-align: center;margin-left: 35px">
         <span>
             <HR width="105%" color=#000000 SIZE=1>
         </span>
     </div>
 </g:if> <g:elseif test="${heavyDieselInfo?.type=='1'}">
-    <div style="width: 102%;height: 3px;position: absolute;left:-10px;top: 210px; text-align: center;margin-left: 35px">
+    <div style="width: 102%;height: 3px;position: absolute;left:-10px;top: 207px; text-align: center;margin-left: 35px">
         <span>
             <HR width="105%" color=#000000 SIZE=1>
         </span>
@@ -97,7 +97,11 @@
                     Ⅳ
                 </g:if> <g:elseif test="${heavyDieselInfo?.en_pfjd=='国五'}">
                 Ⅴ
-            </g:elseif>阶段、《车用压燃式发动机和压燃式发动机汽车排气烟度排放限值及测量方法》（GB 3847-2005）和《汽车加速行驶车外噪声限值及测量方法》（GB 1495-2002）第Ⅱ阶段的要求。
+            </g:elseif>阶段、 <g:if test="${heavyDieselInfo?.en_bz == '新标准'}">
+                《柴油车污染物排放限值及测量方法（自由加速法及加载减速法）》（GB3847-2018）
+            </g:if> <g:else>
+                《车用压燃式发动机和压燃式发动机汽车排气烟度排放限值及测量方法》（GB 3847-2005）
+            </g:else>和《汽车加速行驶车外噪声限值及测量方法》（GB 1495-2002）第Ⅱ阶段的要求。
             </g:if><g:elseif test="${heavyDieselInfo?.type=='1'}">
                 &nbsp;  &nbsp; 浙江飞碟汽车制造有限公司声明：本清单为本企业依据《中华人民共和国大气污染防治法》和生态环境部相关规定公开的机动车环保信息，本企业对本清单所有内容的真实性、准确性、及时性和完整性负责。本公司承诺： 我公司VIN码（见本页条形码）的城市车辆符合《车用压燃式、气体燃料点燃式发动机与汽车排气污染物排放限值及测量方法（中国Ⅲ、Ⅳ、Ⅴ阶段）》（GB 17691-2005）第
                 <g:if test="${heavyDieselInfo?.en_pfjd=='国四'}">
@@ -109,7 +113,11 @@
                     Ⅳ
                 </g:if> <g:elseif test="${heavyDieselInfo?.en_pfjd=='国五'}">
                     Ⅴ
-                </g:elseif>阶段、《车用压燃式发动机和压燃式发动机汽车排气烟度排放限值及测量方法》（GB 3847-2005）和《汽车加速行驶车外噪声限值及测量方法》（GB 1495-2002）第Ⅱ阶段的要求，同时符合乘用车内空气质量标准和相关标准规定的环境保护耐久性要求。
+                </g:elseif>阶段、 <g:if test="${heavyDieselInfo?.en_bz == '新标准'}">
+                    《柴油车污染物排放限值及测量方法（自由加速法及加载减速法）》（GB 3847-2018）
+                </g:if> <g:else>
+                    《车用压燃式发动机和压燃式发动机汽车排气烟度排放限值及测量方法》（GB 3847-2005）
+                </g:else>和《汽车加速行驶车外噪声限值及测量方法》（GB 1495-2002）第Ⅱ阶段的要求，同时符合乘用车内空气质量标准和相关标准规定的环境保护耐久性要求。
             </g:elseif>
         </td>
         </tr>
@@ -213,19 +221,27 @@
                 <img src="../images/en_jcjl.png"  height="13px"  border="0">
             </td>
         </tr>
+    <g:if test="${heavyDieselInfo?.en_jcbz1!=''&&heavyDieselInfo?.en_jcbz1!=null}">
         <tr height="10" >
             <td    style=" font-family:'宋体';font-size:14px;"></td>
             <td  style=" font-family:'宋体';font-size:14px;">GB 17691-2005</td>
             <td style=" font-family:'宋体';font-size:14px;">${heavyDieselInfo?.en_jcbz1}</td>
             <td style=" font-family:'宋体';font-size:14px;">符合</td>
         </tr>
+    </g:if>
+    <g:if test="${heavyDieselInfo?.en_jcbz2!=''&&heavyDieselInfo?.en_jcbz2!=null}">
+        <g:if test="${heavyDieselInfo?.en_bz == '新标准'}">
+
+        </g:if> <g:else>
         <tr height="10" >
             <td style=" font-family:'宋体';font-size:14px;"></td>
             <td style=" font-family:'宋体';font-size:14px;">GB 3847-2005</td>
             <td style=" font-family:'宋体';font-size:14px;">${heavyDieselInfo?.en_jcbz2}</td>
             <td  style=" font-family:'宋体';font-size:14px;">符合</td>
         </tr>
-    <g:if test="${heavyDieselInfo?.type=='1'}">
+    </g:else>
+    </g:if>
+    <g:if test="${heavyDieselInfo?.en_jcbz3!=''&&heavyDieselInfo?.en_jcbz3!=null}">
         <tr height="10" >
             <td   style=" font-family:'宋体';font-size:14px;"></td>
             <td style=" font-family:'宋体';font-size:14px;">HJ 689-2014</td>
@@ -233,25 +249,31 @@
             <td  style=" font-family:'宋体';font-size:14px;">符合</td>
         </tr>
     </g:if>
+    <g:if test="${heavyDieselInfo?.en_jcbz4!=''&&heavyDieselInfo?.en_jcbz4!=null}">
         <tr height="10" >
             <td    style=" font-family:'宋体';font-size:14px;"></td>
             <td  style=" font-family:'宋体';font-size:14px;">HJ 437-2008</td>
             <td  style=" font-family:'宋体';font-size:14px;">${heavyDieselInfo?.en_jcbz4}</td>
             <td  style=" font-family:'宋体';font-size:14px;">符合</td>
         </tr>
+    </g:if>
+    <g:if test="${heavyDieselInfo?.en_jcbz5!=''&&heavyDieselInfo?.en_jcbz5!=null}">
         <tr height="10" >
             <td    style=" font-family:'宋体';font-size:14px;"></td>
             <td  style=" font-family:'宋体';font-size:14px;">HJ 438-2008</td>
             <td  style=" font-family:'宋体';font-size:14px;">${heavyDieselInfo?.en_jcbz5}</td>
             <td style=" font-family:'宋体';font-size:14px;">符合</td>
         </tr>
-    <tr height="10" >
-        <td    style=" font-family:'宋体';font-size:14px;"></td>
-        <td style=" font-family:'宋体';font-size:14px;">GB 1495-2002</td>
-        <td  style=" font-family:'宋体';font-size:14px;">${heavyDieselInfo?.en_jcbz6}</td>
-        <td style=" font-family:'宋体';font-size:14px;">符合</td>
-    </tr>
-    <g:if test="${heavyDieselInfo?.type=='1'}">
+    </g:if>
+    <g:if test="${heavyDieselInfo?.en_jcbz6!=''&&heavyDieselInfo?.en_jcbz6!=null}">
+        <tr height="10" >
+            <td    style=" font-family:'宋体';font-size:14px;"></td>
+            <td style=" font-family:'宋体';font-size:14px;">GB 1495-2002</td>
+            <td  style=" font-family:'宋体';font-size:14px;">${heavyDieselInfo?.en_jcbz6}</td>
+            <td style=" font-family:'宋体';font-size:14px;">符合</td>
+        </tr>
+    </g:if>
+    <g:if test="${heavyDieselInfo?.en_jcbz7!=''&&heavyDieselInfo?.en_jcbz7!=null}">
         <tr height="10" >
             <td   style=" font-family:'宋体';font-size:14px;"></td>
             <td style=" font-family:'宋体';font-size:14px;">GB/T 27630-2011</td>
@@ -259,7 +281,6 @@
             <td  style=" font-family:'宋体';font-size:14px;">符合</td>
         </tr>
     </g:if>
-
     <tr height="10" >
         <td   style=" font-family:'宋体';font-size:14px;">15</td>
         <td  style=" font-family:'宋体';font-size:14px;">出厂检验项目及结论：</td>

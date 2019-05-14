@@ -202,6 +202,13 @@
                     <input name="type" type="text" value="${heavyDiesel?.type}" style="width:300px;"/></div>
                 </td>
             </tr>
+            <tr>
+                <td align="left" colspan="2"><div style="text-align: left; " class="om-resizable">备注</div></td>
+                <td align="left" abbr="city" class="col1"><div align="left" class="innerCol " colspan="2">
+                    <input name="en_bz" type="text" value="${heavyDiesel?.en_bz}" style="width:300px;"/>
+                </div></td>
+            </tr>
+
 
 
             </tbody>

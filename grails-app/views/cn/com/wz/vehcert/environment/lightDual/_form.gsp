@@ -152,10 +152,10 @@
                 <td align="left" abbr="city" class="col1"><div align="left" class="innerCol ">
                     <input name="type" type="text" value="${lightDualInstance?.type}" style="width:300px;"/></div>
                 </td>
-                <td align="left"><div style="text-align: left; " class="om-resizable"></div></td>
+                <td align="left"><div style="text-align: left; " class="om-resizable">备注</div></td>
                 <td align="left" abbr="city" class="col1"><div align="left" class="innerCol ">
-                    </div>
-                </td>
+                    <input name="en_bz" type="text" value="${heavyDiesel?.en_bz}" style="width:300px;"/>
+                </div></td>
             </tr>
 
 
