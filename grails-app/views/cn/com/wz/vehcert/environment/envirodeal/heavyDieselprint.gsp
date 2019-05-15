@@ -441,7 +441,7 @@
     <tr>
         <td colspan="12" scope="col"style="font-family:'宋体';font-size:14px;font-weight: bold">
             %{--第五部分 制造商/进口企业信息--}%
-            <img src="../images/en_part6_2.png"  height="13px"  border="0">
+            <img src="../images/en_part6_3.png"  height="13px"  border="0">
         </td>
     </tr>
     <tr height="10">
